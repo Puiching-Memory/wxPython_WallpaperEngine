@@ -33,16 +33,11 @@ class Main ( wx.Frame ):
 
 		self.SetSizer( bSizer2 )
 		self.Layout()
-		self.T_Check = wx.Timer()
-		self.T_Check.SetOwner( self, wx.ID_ANY )
-		self.T_Check.Start( 500 )
-
 
 		self.Centre( wx.BOTH )
 
 		# Connect Events
 		self.Bind( wx.EVT_CLOSE, self.Close )
-		self.Bind( wx.EVT_TIMER, self.Check, id=wx.ID_ANY )
 
 	def __del__( self ):
 		pass
@@ -50,9 +45,6 @@ class Main ( wx.Frame ):
 
 	# Virtual event handlers, override them in your derived class
 	def Close( self, event ):
-		event.Skip()
-
-	def Check( self, event ):
 		event.Skip()
 
 

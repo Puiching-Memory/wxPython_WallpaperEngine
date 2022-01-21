@@ -1,7 +1,7 @@
 ##############################
 # import
 ##############################
-import wx
+import wx,wx.media
 
 import GUI_Main
 import win32api,win32con
@@ -36,13 +36,17 @@ class CalcFrame(GUI_Main.Main):
 		##self.Vedio.ShowPlayerControls() # 播放控件
 
 		self.Vedio.Load( u"test_vedio.mp4" ) # 加载视频
+		self.Vedio.Bind(wx.media.EVT_MEDIA_STOP, self.Restart)
 
-	def Check(self, event):
-		if self.Vedio.GetState() == wx.media.MEDIASTATE_STOPPED:
-			self.Vedio.Play()
+		self.Vedio.Play()
+
+	
+	def Restart(self, event):
+		self.Vedio.Play()
+		print('Replay')
+		
 
 	def Close(self, event):
-		self.T_Check.Stop()
 		self.Destroy()
 
 
