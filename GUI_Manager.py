@@ -17,7 +17,7 @@ import wx.xrc
 class Main ( wx.Frame ):
 
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"RBS_WALP_Manager", pos = wx.DefaultPosition, size = wx.Size( 600,300 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"RBS_WALP_Manager", pos = wx.DefaultPosition, size = wx.Size( 600,350 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 
 		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 		self.SetBackgroundColour( wx.Colour( 255, 255, 255 ) )
@@ -49,7 +49,7 @@ class Main ( wx.Frame ):
 
 		bSizer31 = wx.BoxSizer( wx.VERTICAL )
 
-		self.filePicker = wx.FilePickerCtrl( self, wx.ID_ANY, wx.EmptyString, u"Select a file", u"mp4 文件 (*.mp4)|*.mp4|mov 文件 (*.mov)|*.mov", wx.DefaultPosition, wx.Size( -1,40 ), wx.FLP_DEFAULT_STYLE )
+		self.filePicker = wx.FilePickerCtrl( self, wx.ID_ANY, wx.EmptyString, u"Select a file", u"mp4 文件 (*.mp4)|*.mp4|mov 文件 (*.mov)|*.mov|html 文件 (*.html)|*.html", wx.DefaultPosition, wx.Size( -1,40 ), wx.FLP_DEFAULT_STYLE )
 		bSizer31.Add( self.filePicker, 0, wx.ALL, 5 )
 
 		self.m_staticText3 = wx.StaticText( self, wx.ID_ANY, u"Locate", wx.DefaultPosition, wx.DefaultSize, 0 )
@@ -111,19 +111,39 @@ class Main ( wx.Frame ):
 		self.m_staticline1 = wx.StaticLine( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.LI_HORIZONTAL )
 		bSizer2.Add( self.m_staticline1, 0, wx.EXPAND |wx.ALL, 5 )
 
-		self.gauge = wx.Gauge( self, wx.ID_ANY, 100, wx.DefaultPosition, wx.Size( 600,-1 ), wx.GA_HORIZONTAL )
-		self.gauge.SetValue( 0 )
-		bSizer2.Add( self.gauge, 0, wx.ALL, 5 )
+		wSizer3 = wx.WrapSizer( wx.HORIZONTAL, wx.WRAPSIZER_DEFAULT_FLAGS )
+
+		bSizer32 = wx.BoxSizer( wx.VERTICAL )
+
+		self.S_Rate = wx.Slider( self, wx.ID_ANY, 100, 0, 200, wx.DefaultPosition, wx.Size( -1,40 ), wx.SL_HORIZONTAL|wx.SL_VALUE_LABEL )
+		bSizer32.Add( self.S_Rate, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
+
+		self.m_staticText21 = wx.StaticText( self, wx.ID_ANY, u"Rate", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText21.Wrap( -1 )
+
+		bSizer32.Add( self.m_staticText21, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
+
+
+		wSizer3.Add( bSizer32, 1, wx.EXPAND, 5 )
+
+
+		bSizer2.Add( wSizer3, 1, wx.EXPAND, 5 )
+
+		self.m_staticline3 = wx.StaticLine( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.LI_HORIZONTAL )
+		bSizer2.Add( self.m_staticline3, 0, wx.EXPAND |wx.ALL, 5 )
+
+		self.GUIDE = wx.Slider( self, wx.ID_ANY, 0, 0, 100, wx.DefaultPosition, wx.Size( 600,-1 ), wx.SL_AUTOTICKS|wx.SL_BOTH )
+		bSizer2.Add( self.GUIDE, 0, wx.ALL, 5 )
 
 		wSizer2 = wx.WrapSizer( wx.HORIZONTAL, wx.WRAPSIZER_DEFAULT_FLAGS )
 
-		self.m_button1 = wx.Button( self, wx.ID_ANY, u"MyButton", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_button1 = wx.Button( self, wx.ID_ANY, u"◀", wx.DefaultPosition, wx.DefaultSize, 0 )
 		wSizer2.Add( self.m_button1, 0, wx.ALL, 5 )
 
-		self.m_button2 = wx.Button( self, wx.ID_ANY, u"MyButton", wx.DefaultPosition, wx.DefaultSize, 0 )
-		wSizer2.Add( self.m_button2, 0, wx.ALL, 5 )
+		self.Control_M = wx.Button( self, wx.ID_ANY, u"Pause", wx.DefaultPosition, wx.DefaultSize, 0 )
+		wSizer2.Add( self.Control_M, 0, wx.ALL, 5 )
 
-		self.m_button3 = wx.Button( self, wx.ID_ANY, u"MyButton", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_button3 = wx.Button( self, wx.ID_ANY, u"▶", wx.DefaultPosition, wx.DefaultSize, 0 )
 		wSizer2.Add( self.m_button3, 0, wx.ALL, 5 )
 
 
@@ -143,6 +163,9 @@ class Main ( wx.Frame ):
 		self.Bind( wx.EVT_CLOSE, self.Close )
 		self.S_Volume.Bind( wx.EVT_SCROLL, self.Change_Volume )
 		self.filePicker.Bind( wx.EVT_FILEPICKER_CHANGED, self.OnFileChanged )
+		self.S_Rate.Bind( wx.EVT_SCROLL, self.Change_Rate )
+		self.GUIDE.Bind( wx.EVT_SCROLL, self.GUIDEOnScroll )
+		self.Control_M.Bind( wx.EVT_BUTTON, self.Control_MOnButtonClick )
 		self.Bind( wx.EVT_TIMER, self.TimerOnTimer, id=wx.ID_ANY )
 
 	def __del__( self ):
@@ -157,6 +180,15 @@ class Main ( wx.Frame ):
 		event.Skip()
 
 	def OnFileChanged( self, event ):
+		event.Skip()
+
+	def Change_Rate( self, event ):
+		event.Skip()
+
+	def GUIDEOnScroll( self, event ):
+		event.Skip()
+
+	def Control_MOnButtonClick( self, event ):
 		event.Skip()
 
 	def TimerOnTimer( self, event ):

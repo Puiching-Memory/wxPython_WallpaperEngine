@@ -1,6 +1,3 @@
-#from win32gui import FindWindow, FindWindowEx, ShowWindow, SendMessageTimeout, SetParent, EnumWindows, GetWindowText
-#from win32con import SW_HIDE, SMTO_ABORTIFHUNG
-
 import win32gui
 import win32con
 

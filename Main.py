@@ -29,21 +29,11 @@ class CalcFrame(GUI_Main.Main):
 
 		print(screen_Size_X,screen_Size_Y) # 获取GUI大小
 		
-		#self.Vedio.SetSize(screen_Size_X, screen_Size_Y)
 		self.SetSize(screen_Size_X, screen_Size_Y)
-		#self.Vedio.Play()
 
 		##self.Vedio.ShowPlayerControls() # 播放控件
 
-		self.Vedio.Load( u"test_vedio.mp4" ) # 加载视频
-		self.Vedio.Bind(wx.media.EVT_MEDIA_STOP, self.Restart)
-
-		self.Vedio.Play()
-
-	
-	def Restart(self, event):
-		self.Vedio.Play()
-		print('Replay')
+		#self.Vedio.Load("test_vedio.mp4" ) # 加载视频
 		
 
 	def Close(self, event):

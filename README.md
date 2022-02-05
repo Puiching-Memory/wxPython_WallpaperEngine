@@ -9,6 +9,11 @@ Desktop wallpaper engine based on wxPython Library
 * [X] 可循环播放
 * [X] 控制面版
 * [X] 音量调节
+* [X] 播放速率调节
+* [X] 自定义播放路径
+* [X] 支持.mov文件夹
+* [ ] 无缝循环播放
+* [ ] 列表式播放
 
 # 所需库:
 
