@@ -9,7 +9,6 @@
 
 import wx
 import wx.xrc
-import wx.media
 
 ###########################################################################
 ## Class Main
@@ -25,19 +24,21 @@ class Main ( wx.Frame ):
 
 		bSizer2 = wx.BoxSizer( wx.VERTICAL )
 
-		self.Vedio = wx.media.MediaCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 400,300 ))
-		self.Vedio.SetPlaybackRate(1)
-		self.Vedio.SetVolume(1)
-		bSizer2.Add( self.Vedio, 1, wx.EXPAND, 5 )
-
 
 		self.SetSizer( bSizer2 )
 		self.Layout()
+		self.Timer = wx.Timer()
+		self.Timer.SetOwner( self, wx.ID_ANY )
+		self.Timer.Start( 10 )
+
 
 		self.Centre( wx.BOTH )
 
 		# Connect Events
 		self.Bind( wx.EVT_CLOSE, self.Close )
+		self.Bind( wx.EVT_ERASE_BACKGROUND, self.MainOnEraseBackground )
+		self.Bind( wx.EVT_PAINT, self.MainOnPaint )
+		self.Bind( wx.EVT_TIMER, self.Time_Tick, id=wx.ID_ANY )
 
 	def __del__( self ):
 		pass
@@ -45,6 +46,15 @@ class Main ( wx.Frame ):
 
 	# Virtual event handlers, override them in your derived class
 	def Close( self, event ):
+		event.Skip()
+
+	def MainOnEraseBackground( self, event ):
+		event.Skip()
+
+	def MainOnPaint( self, event ):
+		event.Skip()
+
+	def Time_Tick( self, event ):
 		event.Skip()
 
 

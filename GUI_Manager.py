@@ -17,7 +17,7 @@ import wx.xrc
 class Main ( wx.Frame ):
 
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"RBS_WALP_Manager", pos = wx.DefaultPosition, size = wx.Size( 600,350 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"RBS_WALP_Manager", pos = wx.DefaultPosition, size = wx.Size( 720,350 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 
 		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 		self.SetBackgroundColour( wx.Colour( 255, 255, 255 ) )
@@ -62,12 +62,12 @@ class Main ( wx.Frame ):
 
 		bSizer4 = wx.BoxSizer( wx.VERTICAL )
 
-		self.T_BestSize = wx.StaticText( self, wx.ID_ANY, u"000 X 000", wx.DefaultPosition, wx.Size( 80,40 ), wx.ALIGN_CENTER_HORIZONTAL )
-		self.T_BestSize.Wrap( -1 )
+		self.T_Size = wx.StaticText( self, wx.ID_ANY, u"000 X 000", wx.DefaultPosition, wx.Size( 80,40 ), wx.ALIGN_CENTER_HORIZONTAL )
+		self.T_Size.Wrap( -1 )
 
-		bSizer4.Add( self.T_BestSize, 0, wx.ALL, 5 )
+		bSizer4.Add( self.T_Size, 0, wx.ALL, 5 )
 
-		self.m_staticText5 = wx.StaticText( self, wx.ID_ANY, u"Best size", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText5 = wx.StaticText( self, wx.ID_ANY, u"分辨率", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.m_staticText5.Wrap( -1 )
 
 		bSizer4.Add( self.m_staticText5, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
@@ -105,14 +105,6 @@ class Main ( wx.Frame ):
 
 		wSizer1.Add( bSizer411, 1, wx.EXPAND, 5 )
 
-
-		bSizer2.Add( wSizer1, 0, 0, 5 )
-
-		self.m_staticline1 = wx.StaticLine( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.LI_HORIZONTAL )
-		bSizer2.Add( self.m_staticline1, 0, wx.EXPAND |wx.ALL, 5 )
-
-		wSizer3 = wx.WrapSizer( wx.HORIZONTAL, wx.WRAPSIZER_DEFAULT_FLAGS )
-
 		bSizer32 = wx.BoxSizer( wx.VERTICAL )
 
 		self.S_Rate = wx.Slider( self, wx.ID_ANY, 100, 0, 200, wx.DefaultPosition, wx.Size( -1,40 ), wx.SL_HORIZONTAL|wx.SL_VALUE_LABEL )
@@ -124,16 +116,20 @@ class Main ( wx.Frame ):
 		bSizer32.Add( self.m_staticText21, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
 
 
-		wSizer3.Add( bSizer32, 1, wx.EXPAND, 5 )
+		wSizer1.Add( bSizer32, 1, wx.EXPAND, 5 )
 
 
-		bSizer2.Add( wSizer3, 1, wx.EXPAND, 5 )
+		bSizer2.Add( wSizer1, 0, 0, 5 )
 
 		self.m_staticline3 = wx.StaticLine( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.LI_HORIZONTAL )
 		bSizer2.Add( self.m_staticline3, 0, wx.EXPAND |wx.ALL, 5 )
 
+		self.Guage = wx.Gauge( self, wx.ID_ANY, 100, wx.DefaultPosition, wx.DefaultSize, wx.GA_HORIZONTAL )
+		self.Guage.SetValue( 0 )
+		bSizer2.Add( self.Guage, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
+
 		self.GUIDE = wx.Slider( self, wx.ID_ANY, 0, 0, 100, wx.DefaultPosition, wx.Size( 600,-1 ), wx.SL_AUTOTICKS|wx.SL_BOTH )
-		bSizer2.Add( self.GUIDE, 0, wx.ALL, 5 )
+		bSizer2.Add( self.GUIDE, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
 
 		wSizer2 = wx.WrapSizer( wx.HORIZONTAL, wx.WRAPSIZER_DEFAULT_FLAGS )
 
@@ -147,15 +143,13 @@ class Main ( wx.Frame ):
 		wSizer2.Add( self.m_button3, 0, wx.ALL, 5 )
 
 
-		bSizer2.Add( wSizer2, 1, wx.EXPAND, 5 )
+		bSizer2.Add( wSizer2, 0, wx.ALIGN_CENTER_HORIZONTAL, 5 )
 
 
 		self.SetSizer( bSizer2 )
 		self.Layout()
 		self.Timer = wx.Timer()
 		self.Timer.SetOwner( self, wx.ID_ANY )
-		self.Timer.Start( 100 )
-
 
 		self.Centre( wx.BOTH )
 
@@ -166,7 +160,7 @@ class Main ( wx.Frame ):
 		self.S_Rate.Bind( wx.EVT_SCROLL, self.Change_Rate )
 		self.GUIDE.Bind( wx.EVT_SCROLL, self.GUIDEOnScroll )
 		self.Control_M.Bind( wx.EVT_BUTTON, self.Control_MOnButtonClick )
-		self.Bind( wx.EVT_TIMER, self.TimerOnTimer, id=wx.ID_ANY )
+		self.Bind( wx.EVT_TIMER, self.Time_Tick, id=wx.ID_ANY )
 
 	def __del__( self ):
 		pass
@@ -191,7 +185,7 @@ class Main ( wx.Frame ):
 	def Control_MOnButtonClick( self, event ):
 		event.Skip()
 
-	def TimerOnTimer( self, event ):
+	def Time_Tick( self, event ):
 		event.Skip()
 
 

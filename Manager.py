@@ -1,14 +1,18 @@
 ##############################
 # import
 ##############################
-import wx,wx.media
+import wx
+import win32gui
+import os
+import cv2
+import shutil
 
 import GUI_Manager
 import Main
 
 import windows_API
-import win32gui
-import webview
+
+
 
 ##############################
 # GUI的函数桥接
@@ -20,67 +24,86 @@ class CalcFrame(GUI_Manager.Main):
 		# 定义主函数
 		GUI_Manager.Main.__init__(self, parent)
 
-		self.T_BestSize.SetLabel(str(Frame_Main.Vedio.GetBestSize()))
-
-		Frame_Main.Vedio.Bind(wx.media.EVT_MEDIA_FINISHED, self.Restart)
-		Frame_Main.Vedio.Bind(wx.media.EVT_MEDIA_LOADED, self.Loaded)
-		Frame_Main.Vedio.Bind(wx.media.EVT_MEDIA_STOP, self.stop)
+		self.i = 1
 
 	def Close(self, event):
 		self.Timer.Stop()
 		self.Destroy()
 		Frame_Main.Destroy()
 
-	def Change_Volume(self, event):
-		Frame_Main.Vedio.SetVolume(self.S_Volume.GetValue() / 100)
-		print("Volume",self.S_Volume.GetValue(), '%')
-
 	
 	def OnFileChanged(self, event):
-		if '.html' in self.filePicker.GetPath():
-			Frame_Main.Vedio.Stop()
-			Frame_Main.Destroy()
-			self.Timer.Stop()
-			self.Hide()
+		path = self.filePicker.GetPath()
+		imgPath = './Cache/'
 
-			window = webview.create_window('RBS_WALP_HTML', self.filePicker.GetPath())
-			webview.start(html_boost, window)
+		if os.path.splitext(path)[-1] == '.mp4':
+
+			if not os.path.exists(imgPath):
+				os.mkdir(imgPath)
+			else:
+				shutil.rmtree(imgPath)
+				os.mkdir(imgPath)
+
+			self.Guage.Pulse()
+			self.Video2Pic(videoPath=path,imgPath=imgPath)
+			self.T_Size.SetLabel(str(self.x) + 'X' + str(self.y))
+
+
+	def Time_Tick(self, event):
+		path = './Cache/' + str(self.i).zfill(4) +  '.jpg'
+		##print(path)
+
+		if os.path.exists(path):
+			##print(1)
+			dc = wx.ClientDC(Frame_Main)
+			dc.DrawBitmap(wx.Bitmap(path), 0, 0)
+			Frame_Main.Refresh()
+
+			self.i = self.i + 1
+
 		else:
-			Frame_Main.Vedio.Stop()
-			Frame_Main.Vedio.Load(self.filePicker.GetPath())
-			self.T_BestSize.SetLabel(str(Frame_Main.Vedio.GetBestSize()))
-			self.T_Length.SetLabel(str(Frame_Main.Vedio.Length()))
+			print('到达播放终点-<')
+			self.i = 1
+			##self.Timer.Stop()
+	#----------------------------------------------------------------
+			
+	def Video2Pic(self,videoPath,imgPath):
+		##videoPath = "youvideoPath"  # 读取视频路径
+		##imgPath = "youimgPath"  # 保存图片路径
+	
+		cap = cv2.VideoCapture(videoPath)
 
-	def TimerOnTimer(self, event):
-		self.T_Length.SetLabel(str(Frame_Main.Vedio.Length() / 1000) + 's')
-		self.T_Tell.SetLabel(str(Frame_Main.Vedio.Tell() / 1000) + 's')
-		if Frame_Main.Vedio.Length() != 0:
-			self.GUIDE.SetValue(int(Frame_Main.Vedio.Tell() / Frame_Main.Vedio.Length() * 100))
+		fps = cap.get(cv2.CAP_PROP_FPS)  # 获取帧率
+		self.fps = fps
 
-	def Control_MOnButtonClick(self, event):
-		print(Frame_Main.Vedio.GetState())
-		if Frame_Main.Vedio.GetState() == 2:
-			self.Control_M.SetLabel('start')
-			Frame_Main.Vedio.Pause()
+		width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))  # 获取宽度
+		self.x = width
+
+		height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))  # 获取高度
+		self.y = height
+
+		print('视频帧率：',fps,'画幅：',width,height)
+
+		suc = cap.isOpened()  # 是否成功打开
+		frame_count = 0
+		try:
+			while suc:
+				frame_count += 1
+				suc, frame = cap.read()
+				path = imgPath + str(frame_count).zfill(4) + '.jpg'
+				cv2.imwrite(path, frame)
+				cv2.waitKey(1)
+				print(path)
+		except:
+			cap.release()
+			self.Guage.SetValue(0)
+			self.Timer.Start(10)
+			print("视频转图片结束！--错误")
 		else:
-			self.Control_M.SetLabel('pause')
-			Frame_Main.Vedio.Play()
-
-	def Change_Rate(self, event):
-		rate = self.S_Rate.GetValue() / 100
-		Frame_Main.Vedio.SetPlaybackRate(rate)
-
-	def Restart(self, event):
-		Frame_Main.Vedio.Play()
-		print('Replay')
-
-	def Loaded(self, event):
-		print('loading complete')
-		Frame_Main.Vedio.Play()
-
-	def stop(self, event):
-		print(1)
-
+			cap.release()
+			self.Guage.SetValue(0)
+			self.Timer.Start(10)
+			print("视频转图片结束！")   
 
 ##############################
 # 主函数
@@ -98,15 +121,13 @@ def main():
 
 	Frame_Main.Show()
 
-	# windows api creature
-	windows_API.RUN(player_window_handel=win32gui.FindWindow(None, "RBS_WALP"))
+	windows_name = Frame_Main.GetTitle()
+	windows_API.RUN(player_window_handel=win32gui.FindWindow(None, windows_name))
 
 	app.MainLoop()
-	
-def html_boost(window):
-	window.toggle_fullscreen()
-	windows_API.RUN(player_window_handel=win32gui.FindWindow(None, "RBS_WALP_HTML"))
-	
+
+
+		
 if __name__ == "__main__":
 	main()
 

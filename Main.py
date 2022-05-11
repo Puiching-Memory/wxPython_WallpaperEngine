@@ -1,7 +1,7 @@
 ##############################
 # import
 ##############################
-import wx,wx.media
+import wx
 
 import GUI_Main
 import win32api,win32con
@@ -17,7 +17,6 @@ class CalcFrame(GUI_Main.Main):
 		# 定义主函数
 		GUI_Main.Main.__init__(self, parent)
 
-		##self.ShowFullScreen(True) # 全屏
 		self.SetDoubleBuffered(True) # 双缓冲
 
 		self.SetTitle('RBS_WALP') # 设置窗口标题
@@ -31,10 +30,14 @@ class CalcFrame(GUI_Main.Main):
 		
 		self.SetSize(screen_Size_X, screen_Size_Y)
 
-		##self.Vedio.ShowPlayerControls() # 播放控件
+		self.i = 1
 
-		#self.Vedio.Load("test_vedio.mp4" ) # 加载视频
-		
+
+	def MainOnEraseBackground(self, event):
+		pass
+	
+	def MainOnPaint(self, event):
+		pass
 
 	def Close(self, event):
 		self.Destroy()
