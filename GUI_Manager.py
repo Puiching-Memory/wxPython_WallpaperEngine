@@ -33,25 +33,28 @@ class Main ( wx.Frame ):
 		self.A_B_File = wx.Button( self.A, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 35,35 ), wx.BORDER_NONE )
 		self.A_B_File.SetBackgroundColour( wx.Colour( 192, 192, 192 ) )
 
-		wSizer3.Add( self.A_B_File, 0, wx.ALL, 5 )
+		wSizer3.Add( self.A_B_File, 0, wx.LEFT, 5 )
 
 		self.A_B_Foler = wx.Button( self.A, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 35,35 ), wx.BORDER_NONE )
 		self.A_B_Foler.SetBackgroundColour( wx.Colour( 192, 192, 192 ) )
 
-		wSizer3.Add( self.A_B_Foler, 0, wx.ALL, 5 )
+		wSizer3.Add( self.A_B_Foler, 0, 0, 5 )
 
 
 		bSizer10.Add( wSizer3, 0, 0, 5 )
 
 		self.Guage = wx.Gauge( self.A, wx.ID_ANY, 100, wx.DefaultPosition, wx.Size( 700,5 ), wx.GA_HORIZONTAL )
 		self.Guage.SetValue( 0 )
-		bSizer10.Add( self.Guage, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
+		bSizer10.Add( self.Guage, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.TOP|wx.RIGHT|wx.LEFT, 5 )
+
+		self.m_listCtrl2 = wx.ListCtrl( self.A, wx.ID_ANY, wx.DefaultPosition, wx.Size( 700,360 ), wx.LC_ICON )
+		bSizer10.Add( self.m_listCtrl2, 0, wx.ALL, 5 )
 
 
 		self.A.SetSizer( bSizer10 )
 		self.A.Layout()
 		bSizer10.Fit( self.A )
-		self.NoteBook.AddPage( self.A, u"资源", False )
+		self.NoteBook.AddPage( self.A, u"资源", True )
 		self.B = wx.Panel( self.NoteBook, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
 		bSizer8 = wx.BoxSizer( wx.VERTICAL )
 
@@ -77,7 +80,7 @@ class Main ( wx.Frame ):
 
 		bSizer4 = wx.BoxSizer( wx.VERTICAL )
 
-		self.T_Size = wx.StaticText( self.B, wx.ID_ANY, u"000 X 000", wx.DefaultPosition, wx.Size( 80,40 ), wx.ALIGN_CENTER_HORIZONTAL )
+		self.T_Size = wx.StaticText( self.B, wx.ID_ANY, u"000,000", wx.DefaultPosition, wx.Size( 80,40 ), wx.ALIGN_CENTER_HORIZONTAL )
 		self.T_Size.Wrap( -1 )
 
 		bSizer4.Add( self.T_Size, 0, wx.ALL, 5 )
@@ -92,12 +95,12 @@ class Main ( wx.Frame ):
 
 		bSizer41 = wx.BoxSizer( wx.VERTICAL )
 
-		self.T_Length = wx.StaticText( self.B, wx.ID_ANY, u"00:00", wx.DefaultPosition, wx.Size( 80,40 ), wx.ALIGN_CENTER_HORIZONTAL )
+		self.T_Length = wx.StaticText( self.B, wx.ID_ANY, u"000F", wx.DefaultPosition, wx.Size( 80,40 ), wx.ALIGN_CENTER_HORIZONTAL )
 		self.T_Length.Wrap( -1 )
 
 		bSizer41.Add( self.T_Length, 0, wx.ALL, 5 )
 
-		self.m_staticText51 = wx.StaticText( self.B, wx.ID_ANY, u"Length", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText51 = wx.StaticText( self.B, wx.ID_ANY, u"帧总数", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.m_staticText51.Wrap( -1 )
 
 		bSizer41.Add( self.m_staticText51, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
@@ -107,12 +110,12 @@ class Main ( wx.Frame ):
 
 		bSizer411 = wx.BoxSizer( wx.VERTICAL )
 
-		self.T_Tell = wx.StaticText( self.B, wx.ID_ANY, u"00:00", wx.DefaultPosition, wx.Size( 80,40 ), wx.ALIGN_CENTER_HORIZONTAL )
+		self.T_Tell = wx.StaticText( self.B, wx.ID_ANY, u"000F", wx.DefaultPosition, wx.Size( 80,40 ), wx.ALIGN_CENTER_HORIZONTAL )
 		self.T_Tell.Wrap( -1 )
 
 		bSizer411.Add( self.T_Tell, 0, wx.ALL, 5 )
 
-		self.m_staticText511 = wx.StaticText( self.B, wx.ID_ANY, u"Tell", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText511 = wx.StaticText( self.B, wx.ID_ANY, u"当前播放帧", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.m_staticText511.Wrap( -1 )
 
 		bSizer411.Add( self.m_staticText511, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
@@ -132,10 +135,10 @@ class Main ( wx.Frame ):
 		self.S_Rate = wx.Slider( self.B, wx.ID_ANY, 100, 25, 200, wx.DefaultPosition, wx.Size( -1,-1 ), wx.SL_HORIZONTAL|wx.SL_VALUE_LABEL )
 		bSizer12.Add( self.S_Rate, 0, wx.ALL, 5 )
 
-		self.m_staticText21 = wx.StaticText( self.B, wx.ID_ANY, u"播放速率", wx.DefaultPosition, wx.Size( -1,-1 ), wx.ALIGN_CENTER_HORIZONTAL )
-		self.m_staticText21.Wrap( -1 )
+		self.T_Rate = wx.StaticText( self.B, wx.ID_ANY, u"播放速率", wx.DefaultPosition, wx.Size( -1,-1 ), wx.ALIGN_CENTER_HORIZONTAL )
+		self.T_Rate.Wrap( -1 )
 
-		bSizer12.Add( self.m_staticText21, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
+		bSizer12.Add( self.T_Rate, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
 
 
 		wSizer1.Add( bSizer12, 1, wx.EXPAND, 5 )
@@ -150,7 +153,7 @@ class Main ( wx.Frame ):
 		self.B.SetSizer( bSizer8 )
 		self.B.Layout()
 		bSizer8.Fit( self.B )
-		self.NoteBook.AddPage( self.B, u"控制", True )
+		self.NoteBook.AddPage( self.B, u"控制", False )
 
 		bSizer2.Add( self.NoteBook, 1, wx.EXPAND |wx.ALL, 5 )
 
@@ -164,9 +167,11 @@ class Main ( wx.Frame ):
 
 		# Connect Events
 		self.Bind( wx.EVT_CLOSE, self.Close )
+		self.Bind( wx.EVT_SIZE, self.MainOnSize )
 		self.A_B_File.Bind( wx.EVT_BUTTON, self.Select_File )
 		self.S_Volume.Bind( wx.EVT_SCROLL, self.Change_Volume )
 		self.S_Rate.Bind( wx.EVT_SCROLL, self.Change_Rate )
+		self.T_Rate.Bind( wx.EVT_LEFT_DCLICK, self.T_RateOnLeftDClick )
 		self.Bind( wx.EVT_TIMER, self.Time_Tick, id=wx.ID_ANY )
 
 	def __del__( self ):
@@ -177,6 +182,9 @@ class Main ( wx.Frame ):
 	def Close( self, event ):
 		event.Skip()
 
+	def MainOnSize( self, event ):
+		event.Skip()
+
 	def Select_File( self, event ):
 		event.Skip()
 
@@ -184,6 +192,9 @@ class Main ( wx.Frame ):
 		event.Skip()
 
 	def Change_Rate( self, event ):
+		event.Skip()
+
+	def T_RateOnLeftDClick( self, event ):
 		event.Skip()
 
 	def Time_Tick( self, event ):

@@ -7,6 +7,8 @@ import win32gui
 import wx
 import wx.svg
 
+##import ffmpeg
+
 import GUI_Manager
 import Main
 import windows_API
@@ -16,12 +18,13 @@ class CalcFrame(GUI_Manager.Main):
 	def __init__(self, parent):
 		GUI_Manager.Main.__init__(self, parent)
 
-		self.i = 1 # 循环变量 .int
 		self.fps = 25 # 帧率 n/s
 		self.x = 0 # 宽 px
 		self.y = 0 # 高 px
 		self.speed = 0 # 播放帧速率 n/s
 		self.tick = 0 # 时钟间隔 ms
+		self.length = 0 # 视频帧总数 f
+		self.tell = 1 # 视频当前播放帧 f
 
 		self.NoteBook.SetSelection(0)
 
@@ -43,9 +46,10 @@ class CalcFrame(GUI_Manager.Main):
 
 		self.Timer.Stop()
 		self.Destroy()
+		self.Disable()
 		Frame_Main.Destroy()
 
-	def Change_Rate(self, event):
+	def Change_Rate(self, *event):
 		"""
 		调整播放速率事件
 		---
@@ -64,7 +68,9 @@ class CalcFrame(GUI_Manager.Main):
 		提供文件选择窗体->检查文件类型->对应处理
 		"""
 
-		wildcard = "mp4 文件 (*.mp4)|*.mp4"
+		wildcard = ('mp4 文件 (*.mp4)|*.mp4'
+					+'|mov文件 (*.mov)|*.mov')
+		
 		with wx.FileDialog(self, "添加媒体文件...", wildcard=wildcard,
 						style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST) as fileDialog:
 
@@ -75,22 +81,23 @@ class CalcFrame(GUI_Manager.Main):
 			pathname = fileDialog.GetPath()
 			try:
 				with open(pathname, 'r') as file:
-					path = pathname
 					imgPath = './Cache/'
+					suffix = os.path.splitext(pathname)[-1] # 获取文件后缀名(包含'.')
+					print(os.path.split(os.path.splitext(pathname)[0])[1])
 
-					if os.path.splitext(path)[-1] == '.mp4':
-
+					if suffix == '.mp4' or suffix == '.mov':
 						if not os.path.exists(imgPath):
 							os.mkdir(imgPath)
 						else:
 							shutil.rmtree(imgPath)
 							os.mkdir(imgPath)
 
-						self.Video2Pic(videoPath=path, imgPath=imgPath)
-						self.T_Size.SetLabel(str(self.x) + 'X' + str(self.y))
+						self.Video2Pic(videoPath=pathname, imgPath=imgPath)
+						self.T_Size.SetLabel(str(self.x) + ',' + str(self.y))
+						self.T_Length.SetLabel(str(self.length) + 'F')
 						
 			except IOError:
-				wx.LogError('Cannot open file')
+				wx.LogError('Cannot open file || 载入文件失败！')
 
 	def Time_Tick(self, event):
 		"""
@@ -101,20 +108,41 @@ class CalcFrame(GUI_Manager.Main):
 		if self.Timer.GetInterval() != self.tick:
 			self.Timer.Stop()
 			self.Timer.Start(self.tick)
-			print('时钟间隔更改，正在重启')
+			##print('时钟间隔更改，正在重启')
 
-		path = './Cache/' + str(self.i).zfill(4) + '.jpg'
+		path = './Cache/' + str(self.tell).zfill(4) + '.jpg'
 
-		if os.path.exists(path):
+		if self.tell < self.length:
 			dc = wx.ClientDC(Frame_Main)
 			dc.DrawBitmap(wx.Bitmap(path), 0, 0)
 			Frame_Main.Refresh()
 
-			self.i = self.i + 1
+			self.tell += 1
+			self.T_Tell.SetLabel(str(self.tell) + 'F')
 
 		else:
 			print('到达播放终点-<')
-			self.i = 1
+			self.tell = 1
+			self.T_Tell.SetLabel(str(self.tell) + 'F')
+
+	def MainOnSize(self, event):
+		"""
+		主窗口调整大小事件
+		---
+		调整部分控件的大小以适应其变化
+		"""
+
+		return super().MainOnSize(event)
+
+	def T_RateOnLeftDClick(self,event):
+		"""
+		鼠标左键双击播放速率文本事件
+		---
+		将视频播放速率拖动条控件恢复至默认值
+		"""
+
+		self.S_Rate.SetValue(100)
+		self.Change_Rate()
 
 	# ----------------------------------------------------------------
 
@@ -133,6 +161,8 @@ class CalcFrame(GUI_Manager.Main):
 		height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))  # 获取高度
 		self.y = height
 
+		self.length = cap.get(7) # 视频帧总数
+
 		print('视频帧率：', fps, '画幅：', width, height)
 
 		suc = cap.isOpened()  # 是否成功打开
@@ -141,6 +171,9 @@ class CalcFrame(GUI_Manager.Main):
 		self.A_B_File.Disable()
 		try:
 			while suc:
+				if not self.IsEnabled():
+					break
+
 				frame_count += 1
 				suc, frame = cap.read()
 				path = imgPath + str(frame_count).zfill(4) + '.jpg'
@@ -155,15 +188,10 @@ class CalcFrame(GUI_Manager.Main):
 			self.tick = int(1000 / self.speed)
 			self.Timer.Start(self.tick)
 			self.A_B_File.Enable()
-			print("视频转图片结束！")
+			print("视频转图片结束")
 		else:
 			cap.release()
-			self.Guage.SetValue(0)
-			self.speed = round(self.fps * (self.S_Rate.GetValue() / 100), 1)
-			self.tick = int(1000 / self.speed)
-			self.Timer.Start(self.tick)
-			self.A_B_File.Enable()
-			print("视频转图片结束！")
+			print("视频转图片中断")
 
 		##############################
 
