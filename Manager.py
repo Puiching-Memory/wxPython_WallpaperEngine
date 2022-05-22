@@ -4,6 +4,8 @@ import shutil
 
 import cv2
 import win32gui
+import win32api
+import win32con
 import wx
 import wx.svg
 
@@ -18,24 +20,34 @@ class CalcFrame(GUI_Manager.Main):
 	def __init__(self, parent):
 		GUI_Manager.Main.__init__(self, parent)
 
-		self.fps = 25 # 帧率 n/s
-		self.x = 0 # 宽 px
-		self.y = 0 # 高 px
-		self.speed = 0 # 播放帧速率 n/s
+		self.fps = 25 # 视频帧率 n/s
+		self.x = 0 # 视频宽 px
+		self.y = 0 # 视频高 px
+		self.sx = win32api.GetSystemMetrics(win32con.SM_CXSCREEN) # 物理屏幕宽 px
+		self.sy = win32api.GetSystemMetrics(win32con.SM_CYSCREEN) # 物理屏幕高 px
+		self.speed = 25 # 播放帧速率 n/s
 		self.tick = 0 # 时钟间隔 ms
-		self.length = 0 # 视频帧总数 f
+		self.length = 50 # 视频帧总数 f
 		self.tell = 1 # 视频当前播放帧 f
+		self.path = '' # 视频路径 str
 
 		self.NoteBook.SetSelection(0)
+		self.A_Thumbnail_ListCtrl.SetDropTarget(FileDropTarget_Thumbnail(self))
+		self.A_PlayList.SetDropTarget(FileDropTarget_PlayList(self))
 
 		SVG_File = wx.svg.SVGimage.CreateFromFile('./icon/File.svg').ConvertToScaledBitmap(wx.Size(35, 35), self)
 		SVG_Folder = wx.svg.SVGimage.CreateFromFile('./icon/Folder.svg').ConvertToScaledBitmap(wx.Size(35, 35), self)
+		SVG_Refresh = wx.svg.SVGimage.CreateFromFile('./icon/Refresh.svg').ConvertToScaledBitmap(wx.Size(35, 35), self)
 
 		self.A_B_File.SetBitmap(SVG_File)
 		self.A_B_Foler.SetBitmap(SVG_Folder)
+		self.A_B_Refresh.SetBitmap(SVG_Refresh)
 
 		self.A_B_File.SetBackgroundColour('white')
 		self.A_B_Foler.SetBackgroundColour('white')
+		self.A_B_Refresh.SetBackgroundColour('white')
+		
+		self.A_B_RefreshOnButtonClick()
 
 	def Close(self, event):
 		"""
@@ -49,6 +61,64 @@ class CalcFrame(GUI_Manager.Main):
 		self.Disable()
 		Frame_Main.Destroy()
 
+	def A_B_RefreshOnButtonClick(self, *event):
+		"""
+		刷新视频图表事件
+		---
+		扫描Cache文件夹,确认文件可用性,将首个图片作为缩略图使用
+		"""
+
+		self.A_Thumbnail_ListCtrl.ClearAll()
+		lmage_list = wx.ImageList(120, 80, mask=False, initialCount=1) # 初始化图像列表
+		dir_name = [] # 文件夹名list
+
+		for root, dirs, files in os.walk('./Cache/'):
+			for name in dirs: # 遍历子文件夹(不包括子文件夹内文件)
+				dir_path = os.path.join(root, name) # 文件夹路径str
+				
+				if len(os.listdir(dir_path)) != 0: # 排除空文件夹
+					dir_name.append(name) # 文件夹名list
+					thumbnail_path = dir_path + '/' + os.listdir(dir_path)[0] # 计算缩略图路径
+					##print(thumbnail_path)
+					lmage_list.Add(wx.Bitmap(wx.Image(thumbnail_path).Scale(120,80))) # 添加到图像列表
+
+		dir_name.reverse() # 图像列表使用追加的方式添加图片,所以ImageList与文件夹名list排序相反,在此将文本列表进行倒序操作
+
+		self.A_Thumbnail_ListCtrl.AssignImageList(lmage_list,0) # 绑定图像列表
+
+		for i in range(0, len(dir_name)):
+			info = dir_name[i] # 提取文件夹名作为info
+			self.A_Thumbnail_ListCtrl.InsertItem(0,info) # 插入最前端
+			
+			self.A_Thumbnail_ListCtrl.SetItemImage(i,i) # 将标签索引与图像列表索引绑定
+
+	def A_Thumbnail_ListCtrlOnListItemActivated(self, event):
+		"""
+		视频图表双击任意标签事件
+		---
+		将该标签添加到播放列表,同时播放该标签对应的视频
+		"""
+		id = self.A_Thumbnail_ListCtrl.GetFocusedItem() # 选中标签的ID
+		name = self.A_Thumbnail_ListCtrl.GetItemText(id) # 选中标签的文本
+		self.A_PlayList.InsertItem(0, name) # 添加入播放列表
+
+	def A_Thumbnail_ListCtrlOnListBeginDrag(self, event):
+		"""
+		视频图表左键拖动标签事件
+		---
+		如果拖动到播放列表上,则将其添加如播放列表,同时播放该标签对应的视频
+		"""
+		id = self.A_Thumbnail_ListCtrl.GetFocusedItem() # 选中标签的ID
+		name = self.A_Thumbnail_ListCtrl.GetItemText(id) # 选中标签的文本
+		dir_path = os.path.abspath(os.path.join('./Cache/', name)) # 选中标签的文件夹绝对路径
+
+		data = wx.FileDataObject()
+		data.AddFile(dir_path)
+
+		dropSource = wx.DropSource()
+		dropSource.SetData(data)
+		result= dropSource.DoDragDrop()
+
 	def Change_Rate(self, *event):
 		"""
 		调整播放速率事件
@@ -58,6 +128,9 @@ class CalcFrame(GUI_Manager.Main):
 
 		self.speed = round(self.fps * (self.S_Rate.GetValue() / 100), 1)
 		self.tick = int(1000 / self.speed)
+
+		self.T_FPS.SetLabel(str(self.fps) + 'F/S' + '\n' +
+							str(self.speed) + '(t)F/S')
 
 		##print(self.speed, self.tick)
 
@@ -79,25 +152,49 @@ class CalcFrame(GUI_Manager.Main):
 
 			# Proceed loading the file chosen by the user
 			pathname = fileDialog.GetPath()
+
 			try:
-				with open(pathname, 'r') as file:
-					imgPath = './Cache/'
-					suffix = os.path.splitext(pathname)[-1] # 获取文件后缀名(包含'.')
-					print(os.path.split(os.path.splitext(pathname)[0])[1])
+				self.Analysis(pathname)
+			except IOError as error:
+				wx.LogError('Cannot open file || 载入文件失败！' + '\n' 
+							+ '错误捕获：' + str(error))
 
-					if suffix == '.mp4' or suffix == '.mov':
-						if not os.path.exists(imgPath):
-							os.mkdir(imgPath)
-						else:
-							shutil.rmtree(imgPath)
-							os.mkdir(imgPath)
+	def Analysis(self, pathname):
+		"""
+		非事件_视频分析处理
+		---
+		以减少代码重复率
+		"""
 
-						self.Video2Pic(videoPath=pathname, imgPath=imgPath)
-						self.T_Size.SetLabel(str(self.x) + ',' + str(self.y))
-						self.T_Length.SetLabel(str(self.length) + 'F')
-						
-			except IOError:
-				wx.LogError('Cannot open file || 载入文件失败！')
+		self.Timer.Stop()
+		self.tell = 1
+		self.B_Tell_Control.Disable()
+
+		with open(pathname, 'r') as file:
+			suffix = os.path.splitext(pathname)[-1] # 获取文件后缀名(包含'.')
+			prefix = os.path.split(os.path.splitext(pathname)[0])[1] # 获取文件前缀名
+			imgPath = './Cache/' + prefix + '/'
+			self.path = imgPath
+
+			if suffix == '.mp4' or suffix == '.mov':
+				if not os.path.exists('./Cache/'):
+					os.mkdir('./Cache/')
+
+				if not os.path.exists(imgPath):
+					os.mkdir(imgPath)
+				else:
+					shutil.rmtree(imgPath)
+					os.mkdir(imgPath)
+
+				self.Video2Pic(videoPath=pathname, imgPath=imgPath) # OpenCV可以多线程执行，但只有所有任务完成后才运行这里的下一行
+				self.T_Size.SetLabel(str(self.x) + ',' + str(self.y))
+				self.T_Length.SetLabel(str(self.length) + 'F')
+				self.T_FPS.SetLabel(str(self.fps) + 'F/S' + '\n' +
+									str(self.speed) + '(t)F/S')
+
+				self.B_Tell_Control.Enable()
+
+				self.A_B_RefreshOnButtonClick()
 
 	def Time_Tick(self, event):
 		"""
@@ -110,15 +207,27 @@ class CalcFrame(GUI_Manager.Main):
 			self.Timer.Start(self.tick)
 			##print('时钟间隔更改，正在重启')
 
-		path = './Cache/' + str(self.tell).zfill(4) + '.jpg'
+		path = self.path + str(self.tell).zfill(4) + '.jpg'
 
 		if self.tell < self.length:
 			dc = wx.ClientDC(Frame_Main)
-			dc.DrawBitmap(wx.Bitmap(path), 0, 0)
+
+			image = wx.Image(path).Scale(self.sx,self.sy)
+
+			bitmap = wx.Bitmap(image)
+
+			temp_dc = wx.MemoryDC()
+			temp_dc.SelectObject(bitmap)
+
+			#dc.DrawBitmap(bitmap, 0, 0)
+			dc.Blit(0, 0, self.sx, self.sy, temp_dc, 0, 0)
 			Frame_Main.Refresh()
 
 			self.tell += 1
+
 			self.T_Tell.SetLabel(str(self.tell) + 'F')
+			
+			self.B_Tell_Control.SetValue(round(self.tell / self.length * 100))
 
 		else:
 			print('到达播放终点-<')
@@ -144,6 +253,34 @@ class CalcFrame(GUI_Manager.Main):
 		self.S_Rate.SetValue(100)
 		self.Change_Rate()
 
+	def B_Tell_ControlOnScroll(self, event):
+		"""
+		所有视频播放进度条控件事件
+		---
+		触发时暂停视频的播放
+		"""
+		if event.GetEventType() != wx.wxEVT_SCROLL_CHANGED: # 排除视频播放进度条控件结束事件
+			self.Timer.Stop()
+			print('stop!')
+
+		event.Skip()
+
+	def B_Tell_ControlOnScrollChanged(self, event):
+		"""
+		视频播放进度条控件结束事件
+		---
+		触发时重定位到目标帧并开始播放
+		"""
+		self.tell = round(self.B_Tell_Control.GetValue() / 100 * self.length)
+
+		if self.tell == 0: # 因为帧序列从‘0001.xxx’开始,所以将0修改为1
+			self.tell = 1
+
+		self.Timer.Start(self.tick)
+		print(self.tell)
+		
+		event.Skip()		
+
 	# ----------------------------------------------------------------
 
 	def Video2Pic(self, videoPath, imgPath):
@@ -161,7 +298,7 @@ class CalcFrame(GUI_Manager.Main):
 		height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))  # 获取高度
 		self.y = height
 
-		self.length = cap.get(7) # 视频帧总数
+		self.length = int(cap.get(7)) # 视频帧总数
 
 		print('视频帧率：', fps, '画幅：', width, height)
 
@@ -181,6 +318,7 @@ class CalcFrame(GUI_Manager.Main):
 				cv2.waitKey(1)
 				print(path,int(cap.get(1) / cap.get(7) * 100),'%')
 				self.Guage.SetValue(int(cap.get(1) / cap.get(7) * 100))
+				self.T_Analysis_Text.SetLabel('>>>' + path + ' || ' + str(int(cap.get(1) / cap.get(7) * 100)) + '%')
 		except:
 			cap.release()
 			self.Guage.SetValue(0)
@@ -193,9 +331,110 @@ class CalcFrame(GUI_Manager.Main):
 			cap.release()
 			print("视频转图片中断")
 
-		##############################
+###########################################################################
+# 文件拖入处理Class
+# File Class
+###########################################################################
+
+class FileDropTarget_Thumbnail(wx.FileDropTarget):
+	"""
+	视频预览图窗口_文件拖动处理类
+	---
+	"""	
+	def __init__(self, window:CalcFrame):
+
+		wx.FileDropTarget.__init__(self)
+		self.window = window # 继承自主GUI
+
+	def OnDragOver(self, x, y, defResult):
+		"""
+		文件拖动进入目标窗口事件
+		---
+		更改GUI外观以提示
+		"""
+		return super().OnDragOver(x, y, defResult)
+
+	def OnDropFiles(self, x, y, filenames):
+		"""
+		文件拖动完成事件
+		---
+		获取文件路径并进行处理
+		"""
+		##self.window.A_Thumbnail_ListCtrl.SetBackgroundColour('white')
+		error_list = []
+
+		for name in filenames:
+			suffix = os.path.splitext(name)[-1] # 获取文件后缀名(包含'.')
+			prefix = os.path.split(os.path.splitext(name)[0])[1] # 获取文件前缀名
+
+			print(name, '文件类型:' + suffix)
+
+			if suffix == '.mp4':
+				wx.CallAfter(self.window.Analysis,name)
+			elif suffix == '':
+				pass
+			else:
+				error_list.append(name)
+
+		Str = '加载以下文件时出现错误：'
+		if len(error_list) != 0:
+			for i in error_list:
+				Str = Str + '\n' + i
+
+			wx.CallAfter(wx.MessageBox, Str + '\n' + '错误原因：不支持的文件类型', caption='文件处理')
+
+		return True
+
+class FileDropTarget_PlayList(wx.FileDropTarget):
+	"""
+	视频播放列表窗口_文件拖动处理类
+	---
+	"""	
+	def __init__(self, window:CalcFrame):
+
+		wx.FileDropTarget.__init__(self)
+		self.window = window # 继承自主GUI
+
+	def OnDragOver(self, x, y, defResult):
+		"""
+		文件拖动进入目标窗口事件
+		---
+		更改GUI外观以提示
+		"""
+		return super().OnDragOver(x, y, defResult)
+
+	def OnDropFiles(self, x, y, filenames):
+		"""
+		文件拖动完成事件
+		---
+		获取文件路径并进行处理
+		"""
+		error_list = []
+
+		for name in filenames:
+			suffix = os.path.splitext(name)[-1] # 获取文件后缀名(包含'.')
+			prefix = os.path.split(os.path.splitext(name)[0])[1] # 获取文件前缀名
+
+			print(name, '文件类型:' + suffix)
+
+			if suffix == '.mp4':
+				wx.CallAfter(self.window.Analysis,name)
+			elif suffix == '':
+				pass
+			else:
+				error_list.append(name)
+
+		Str = '加载以下文件时出现错误：'
+		if len(error_list) != 0:
+			for i in error_list:
+				Str = Str + '\n' + i
+
+			wx.CallAfter(wx.MessageBox, Str + '\n' + '错误原因：不支持的文件类型', caption='文件处理')
+
+		return True
 
 
+##############################
 # 主函数
 ##############################
 

@@ -1,8 +1,8 @@
 # wxPython_WallpaperEngine
 
-Desktop wallpaper engine based on wxPython Library
+Dynamic desktop wallpaper engine based on wxPython
 
-基于wxpython库实现的桌面壁纸引擎
+基于wxpython实现的动态桌面壁纸引擎
 
 # 技术细节
 
@@ -14,18 +14,16 @@ windows10
 
 windows8/7(理论上)
 
-# 功能计划 || Plan 2022/05/11
+# 功能计划 || Plan 2022/05/20❤
 
-* [X] 控制面版
 * [ ] 播放音频
 * [X] 播放速率调节
-* [X] 自定义播放路径
 * [X] 支持.mov文件
 * [ ] 支持html文件
 * [ ] 切片缓存再利用
 * [X] 无缝循环播放
 * [ ] 列表式播放
-* [ ] 拖放式加载
+* [X] 拖放式加载
 
 # 所需库
 

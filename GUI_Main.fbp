@@ -48,33 +48,18 @@
             <property name="name">Main</property>
             <property name="pos"></property>
             <property name="size">400,300</property>
-            <property name="style">wxFRAME_SHAPED</property>
+            <property name="style"></property>
             <property name="subclass">; ; forward_declare</property>
             <property name="title">RBS_WALP</property>
             <property name="tooltip"></property>
             <property name="two_step_creation">0</property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
-            <property name="window_style">wxTAB_TRAVERSAL</property>
+            <property name="window_style">wxTRANSPARENT_WINDOW</property>
             <property name="xrc_skip_sizer">1</property>
             <event name="OnClose">Close</event>
             <event name="OnEraseBackground">MainOnEraseBackground</event>
             <event name="OnPaint">MainOnPaint</event>
-            <object class="wxBoxSizer" expanded="1">
-                <property name="minimum_size"></property>
-                <property name="name">bSizer2</property>
-                <property name="orient">wxVERTICAL</property>
-                <property name="permission">none</property>
-            </object>
-            <object class="wxTimer" expanded="1">
-                <property name="enabled">1</property>
-                <property name="id">wxID_ANY</property>
-                <property name="name">Timer</property>
-                <property name="oneshot">0</property>
-                <property name="period">10</property>
-                <property name="permission">protected</property>
-                <event name="OnTimer">Time_Tick</event>
-            </object>
         </object>
     </object>
 </wxFormBuilder_Project>

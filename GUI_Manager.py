@@ -17,7 +17,7 @@ import wx.xrc
 class Main ( wx.Frame ):
 
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"RBS_WALP_Manager", pos = wx.DefaultPosition, size = wx.Size( 730,500 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"wxPython_WallpaperEngine_Manager", pos = wx.DefaultPosition, size = wx.Size( 730,500 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 
 		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 		self.SetBackgroundColour( wx.Colour( 255, 255, 255 ) )
@@ -33,12 +33,23 @@ class Main ( wx.Frame ):
 		self.A_B_File = wx.Button( self.A, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 35,35 ), wx.BORDER_NONE )
 		self.A_B_File.SetBackgroundColour( wx.Colour( 192, 192, 192 ) )
 
-		wSizer3.Add( self.A_B_File, 0, wx.LEFT, 5 )
+		wSizer3.Add( self.A_B_File, 0, wx.RIGHT|wx.LEFT, 5 )
 
 		self.A_B_Foler = wx.Button( self.A, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 35,35 ), wx.BORDER_NONE )
 		self.A_B_Foler.SetBackgroundColour( wx.Colour( 192, 192, 192 ) )
+		self.A_B_Foler.Enable( False )
 
-		wSizer3.Add( self.A_B_Foler, 0, 0, 5 )
+		wSizer3.Add( self.A_B_Foler, 0, wx.RIGHT|wx.LEFT, 5 )
+
+		self.A_B_Refresh = wx.Button( self.A, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 35,35 ), wx.BORDER_NONE )
+		self.A_B_Refresh.SetBackgroundColour( wx.Colour( 192, 192, 192 ) )
+
+		wSizer3.Add( self.A_B_Refresh, 0, wx.RIGHT|wx.LEFT, 5 )
+
+		self.T_Analysis_Text = wx.StaticText( self.A, wx.ID_ANY, u">>>000X.xxx || 000%", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.T_Analysis_Text.Wrap( -1 )
+
+		wSizer3.Add( self.T_Analysis_Text, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
 
 
 		bSizer10.Add( wSizer3, 0, 0, 5 )
@@ -47,8 +58,16 @@ class Main ( wx.Frame ):
 		self.Guage.SetValue( 0 )
 		bSizer10.Add( self.Guage, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.TOP|wx.RIGHT|wx.LEFT, 5 )
 
-		self.m_listCtrl2 = wx.ListCtrl( self.A, wx.ID_ANY, wx.DefaultPosition, wx.Size( 700,360 ), wx.LC_ICON )
-		bSizer10.Add( self.m_listCtrl2, 0, wx.ALL, 5 )
+		wSizer31 = wx.WrapSizer( wx.HORIZONTAL, wx.WRAPSIZER_DEFAULT_FLAGS )
+
+		self.A_Thumbnail_ListCtrl = wx.ListCtrl( self.A, wx.ID_ANY, wx.DefaultPosition, wx.Size( 570,400 ), wx.LC_ICON )
+		wSizer31.Add( self.A_Thumbnail_ListCtrl, 0, wx.ALL, 5 )
+
+		self.A_PlayList = wx.ListCtrl( self.A, wx.ID_ANY, wx.DefaultPosition, wx.Size( 100,400 ), wx.LC_LIST )
+		wSizer31.Add( self.A_PlayList, 0, wx.ALL, 5 )
+
+
+		bSizer10.Add( wSizer31, 1, wx.EXPAND, 5 )
 
 
 		self.A.SetSizer( bSizer10 )
@@ -72,11 +91,6 @@ class Main ( wx.Frame ):
 
 
 		wSizer1.Add( bSizer3, 0, 0, 5 )
-
-		bSizer31 = wx.BoxSizer( wx.VERTICAL )
-
-
-		wSizer1.Add( bSizer31, 1, wx.EXPAND, 5 )
 
 		bSizer4 = wx.BoxSizer( wx.VERTICAL )
 
@@ -123,12 +137,20 @@ class Main ( wx.Frame ):
 
 		wSizer1.Add( bSizer411, 1, wx.EXPAND, 5 )
 
-		gbSizer1 = wx.GridBagSizer( 0, 0 )
-		gbSizer1.SetFlexibleDirection( wx.BOTH )
-		gbSizer1.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
+		bSizer412 = wx.BoxSizer( wx.VERTICAL )
+
+		self.T_FPS = wx.StaticText( self.B, wx.ID_ANY, u"25F/S\n25(t)F/S", wx.DefaultPosition, wx.Size( 80,40 ), wx.ALIGN_CENTER_HORIZONTAL )
+		self.T_FPS.Wrap( -1 )
+
+		bSizer412.Add( self.T_FPS, 0, wx.ALL, 5 )
+
+		self.m_staticText512 = wx.StaticText( self.B, wx.ID_ANY, u"帧率", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText512.Wrap( -1 )
+
+		bSizer412.Add( self.m_staticText512, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
 
 
-		wSizer1.Add( gbSizer1, 1, wx.EXPAND, 5 )
+		wSizer1.Add( bSizer412, 1, wx.EXPAND, 5 )
 
 		bSizer12 = wx.BoxSizer( wx.VERTICAL )
 
@@ -148,6 +170,11 @@ class Main ( wx.Frame ):
 
 		self.m_staticline3 = wx.StaticLine( self.B, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.LI_HORIZONTAL )
 		bSizer8.Add( self.m_staticline3, 0, wx.EXPAND |wx.ALL, 5 )
+
+		self.B_Tell_Control = wx.Slider( self.B, wx.ID_ANY, 0, 0, 100, wx.DefaultPosition, wx.Size( 700,-1 ), wx.SL_AUTOTICKS|wx.SL_HORIZONTAL|wx.SL_LABELS )
+		self.B_Tell_Control.Enable( False )
+
+		bSizer8.Add( self.B_Tell_Control, 0, wx.ALL, 5 )
 
 
 		self.B.SetSizer( bSizer8 )
@@ -169,9 +196,14 @@ class Main ( wx.Frame ):
 		self.Bind( wx.EVT_CLOSE, self.Close )
 		self.Bind( wx.EVT_SIZE, self.MainOnSize )
 		self.A_B_File.Bind( wx.EVT_BUTTON, self.Select_File )
+		self.A_B_Refresh.Bind( wx.EVT_BUTTON, self.A_B_RefreshOnButtonClick )
+		self.A_Thumbnail_ListCtrl.Bind( wx.EVT_LIST_BEGIN_DRAG, self.A_Thumbnail_ListCtrlOnListBeginDrag )
+		self.A_Thumbnail_ListCtrl.Bind( wx.EVT_LIST_ITEM_ACTIVATED, self.A_Thumbnail_ListCtrlOnListItemActivated )
 		self.S_Volume.Bind( wx.EVT_SCROLL, self.Change_Volume )
 		self.S_Rate.Bind( wx.EVT_SCROLL, self.Change_Rate )
 		self.T_Rate.Bind( wx.EVT_LEFT_DCLICK, self.T_RateOnLeftDClick )
+		self.B_Tell_Control.Bind( wx.EVT_SCROLL, self.B_Tell_ControlOnScroll )
+		self.B_Tell_Control.Bind( wx.EVT_SCROLL_CHANGED, self.B_Tell_ControlOnScrollChanged )
 		self.Bind( wx.EVT_TIMER, self.Time_Tick, id=wx.ID_ANY )
 
 	def __del__( self ):
@@ -188,6 +220,15 @@ class Main ( wx.Frame ):
 	def Select_File( self, event ):
 		event.Skip()
 
+	def A_B_RefreshOnButtonClick( self, event ):
+		event.Skip()
+
+	def A_Thumbnail_ListCtrlOnListBeginDrag( self, event ):
+		event.Skip()
+
+	def A_Thumbnail_ListCtrlOnListItemActivated( self, event ):
+		event.Skip()
+
 	def Change_Volume( self, event ):
 		event.Skip()
 
@@ -195,6 +236,12 @@ class Main ( wx.Frame ):
 		event.Skip()
 
 	def T_RateOnLeftDClick( self, event ):
+		event.Skip()
+
+	def B_Tell_ControlOnScroll( self, event ):
+		event.Skip()
+
+	def B_Tell_ControlOnScrollChanged( self, event ):
 		event.Skip()
 
 	def Time_Tick( self, event ):
