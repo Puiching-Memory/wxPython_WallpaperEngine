@@ -63,7 +63,8 @@ class Main ( wx.Frame ):
 		self.A_Thumbnail_ListCtrl = wx.ListCtrl( self.A, wx.ID_ANY, wx.DefaultPosition, wx.Size( 570,400 ), wx.LC_ICON )
 		wSizer31.Add( self.A_Thumbnail_ListCtrl, 0, wx.ALL, 5 )
 
-		self.A_PlayList = wx.ListCtrl( self.A, wx.ID_ANY, wx.DefaultPosition, wx.Size( 100,400 ), wx.LC_LIST )
+		A_PlayListChoices = []
+		self.A_PlayList = wx.ListBox( self.A, wx.ID_ANY, wx.DefaultPosition, wx.Size( 100,400 ), A_PlayListChoices, wx.LB_HSCROLL|wx.LB_NEEDED_SB|wx.LB_SINGLE )
 		wSizer31.Add( self.A_PlayList, 0, wx.ALL, 5 )
 
 
@@ -73,7 +74,7 @@ class Main ( wx.Frame ):
 		self.A.SetSizer( bSizer10 )
 		self.A.Layout()
 		bSizer10.Fit( self.A )
-		self.NoteBook.AddPage( self.A, u"资源", True )
+		self.NoteBook.AddPage( self.A, u"资源", False )
 		self.B = wx.Panel( self.NoteBook, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
 		bSizer8 = wx.BoxSizer( wx.VERTICAL )
 
@@ -171,6 +172,20 @@ class Main ( wx.Frame ):
 		self.m_staticline3 = wx.StaticLine( self.B, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.LI_HORIZONTAL )
 		bSizer8.Add( self.m_staticline3, 0, wx.EXPAND |wx.ALL, 5 )
 
+		wSizer4 = wx.WrapSizer( wx.HORIZONTAL, wx.WRAPSIZER_DEFAULT_FLAGS )
+
+		self.UpOne = wx.Button( self.B, wx.ID_ANY, u"◀", wx.DefaultPosition, wx.DefaultSize, 0 )
+		wSizer4.Add( self.UpOne, 0, wx.ALL, 5 )
+
+		self.PS_Control = wx.Button( self.B, wx.ID_ANY, u"▶", wx.DefaultPosition, wx.DefaultSize, 0 )
+		wSizer4.Add( self.PS_Control, 0, wx.ALL, 5 )
+
+		self.DownOne = wx.Button( self.B, wx.ID_ANY, u"▶", wx.DefaultPosition, wx.DefaultSize, 0 )
+		wSizer4.Add( self.DownOne, 0, wx.ALL, 5 )
+
+
+		bSizer8.Add( wSizer4, 0, wx.ALIGN_CENTER_HORIZONTAL, 5 )
+
 		self.B_Tell_Control = wx.Slider( self.B, wx.ID_ANY, 0, 0, 100, wx.DefaultPosition, wx.Size( 700,-1 ), wx.SL_AUTOTICKS|wx.SL_HORIZONTAL|wx.SL_LABELS )
 		self.B_Tell_Control.Enable( False )
 
@@ -180,7 +195,7 @@ class Main ( wx.Frame ):
 		self.B.SetSizer( bSizer8 )
 		self.B.Layout()
 		bSizer8.Fit( self.B )
-		self.NoteBook.AddPage( self.B, u"控制", False )
+		self.NoteBook.AddPage( self.B, u"控制", True )
 
 		bSizer2.Add( self.NoteBook, 1, wx.EXPAND |wx.ALL, 5 )
 
@@ -196,12 +211,13 @@ class Main ( wx.Frame ):
 		self.Bind( wx.EVT_CLOSE, self.Close )
 		self.Bind( wx.EVT_SIZE, self.MainOnSize )
 		self.A_B_File.Bind( wx.EVT_BUTTON, self.Select_File )
-		self.A_B_Refresh.Bind( wx.EVT_BUTTON, self.A_B_RefreshOnButtonClick )
+		self.A_B_Refresh.Bind( wx.EVT_BUTTON, self.Thumbnail_Refresh )
 		self.A_Thumbnail_ListCtrl.Bind( wx.EVT_LIST_BEGIN_DRAG, self.A_Thumbnail_ListCtrlOnListBeginDrag )
 		self.A_Thumbnail_ListCtrl.Bind( wx.EVT_LIST_ITEM_ACTIVATED, self.A_Thumbnail_ListCtrlOnListItemActivated )
 		self.S_Volume.Bind( wx.EVT_SCROLL, self.Change_Volume )
 		self.S_Rate.Bind( wx.EVT_SCROLL, self.Change_Rate )
 		self.T_Rate.Bind( wx.EVT_LEFT_DCLICK, self.T_RateOnLeftDClick )
+		self.PS_Control.Bind( wx.EVT_BUTTON, self.PorS )
 		self.B_Tell_Control.Bind( wx.EVT_SCROLL, self.B_Tell_ControlOnScroll )
 		self.B_Tell_Control.Bind( wx.EVT_SCROLL_CHANGED, self.B_Tell_ControlOnScrollChanged )
 		self.Bind( wx.EVT_TIMER, self.Time_Tick, id=wx.ID_ANY )
@@ -220,7 +236,7 @@ class Main ( wx.Frame ):
 	def Select_File( self, event ):
 		event.Skip()
 
-	def A_B_RefreshOnButtonClick( self, event ):
+	def Thumbnail_Refresh( self, event ):
 		event.Skip()
 
 	def A_Thumbnail_ListCtrlOnListBeginDrag( self, event ):
@@ -236,6 +252,9 @@ class Main ( wx.Frame ):
 		event.Skip()
 
 	def T_RateOnLeftDClick( self, event ):
+		event.Skip()
+
+	def PorS( self, event ):
 		event.Skip()
 
 	def B_Tell_ControlOnScroll( self, event ):

@@ -2,16 +2,21 @@
 import os
 import shutil
 
-import cv2
+import configparser
+import cv2 # 打包后占用内存过大
 import win32gui
 import win32api
 import win32con
 import wx
 import wx.svg
 
+import winsound # windowsAPI播放wav
+import pydub # mp3转wav
+import tinytag # mp4分离mp3
 ##import ffmpeg
 
 import GUI_Manager
+
 import Main
 import windows_API
 
@@ -29,11 +34,12 @@ class CalcFrame(GUI_Manager.Main):
 		self.tick = 0 # 时钟间隔 ms
 		self.length = 50 # 视频帧总数 f
 		self.tell = 1 # 视频当前播放帧 f
-		self.path = '' # 视频路径 str
+		self.path = '' # 视频路径(文件夹路径) str
+		self.list = [] # 视频播放列表(文件夹路径) list
+		self.cfg = configparser.ConfigParser() # cfg
 
 		self.NoteBook.SetSelection(0)
 		self.A_Thumbnail_ListCtrl.SetDropTarget(FileDropTarget_Thumbnail(self))
-		self.A_PlayList.SetDropTarget(FileDropTarget_PlayList(self))
 
 		SVG_File = wx.svg.SVGimage.CreateFromFile('./icon/File.svg').ConvertToScaledBitmap(wx.Size(35, 35), self)
 		SVG_Folder = wx.svg.SVGimage.CreateFromFile('./icon/Folder.svg').ConvertToScaledBitmap(wx.Size(35, 35), self)
@@ -47,7 +53,7 @@ class CalcFrame(GUI_Manager.Main):
 		self.A_B_Foler.SetBackgroundColour('white')
 		self.A_B_Refresh.SetBackgroundColour('white')
 		
-		self.A_B_RefreshOnButtonClick()
+		self.Thumbnail_Refresh()
 
 	def Close(self, event):
 		"""
@@ -61,11 +67,13 @@ class CalcFrame(GUI_Manager.Main):
 		self.Disable()
 		Frame_Main.Destroy()
 
-	def A_B_RefreshOnButtonClick(self, *event):
+	def Thumbnail_Refresh(self, *event):
 		"""
 		刷新视频图表事件
 		---
 		扫描Cache文件夹,确认文件可用性,将首个图片作为缩略图使用
+
+		step2-将记录加载入视频播放列表
 		"""
 
 		self.A_Thumbnail_ListCtrl.ClearAll()
@@ -79,7 +87,6 @@ class CalcFrame(GUI_Manager.Main):
 				if len(os.listdir(dir_path)) != 0: # 排除空文件夹
 					dir_name.append(name) # 文件夹名list
 					thumbnail_path = dir_path + '/' + os.listdir(dir_path)[0] # 计算缩略图路径
-					##print(thumbnail_path)
 					lmage_list.Add(wx.Bitmap(wx.Image(thumbnail_path).Scale(120,80))) # 添加到图像列表
 
 		dir_name.reverse() # 图像列表使用追加的方式添加图片,所以ImageList与文件夹名list排序相反,在此将文本列表进行倒序操作
@@ -100,7 +107,17 @@ class CalcFrame(GUI_Manager.Main):
 		"""
 		id = self.A_Thumbnail_ListCtrl.GetFocusedItem() # 选中标签的ID
 		name = self.A_Thumbnail_ListCtrl.GetItemText(id) # 选中标签的文本
-		self.A_PlayList.InsertItem(0, name) # 添加入播放列表
+
+		if self.A_PlayList.FindString(name) == -1:
+			self.A_PlayList.Append(name) # 添加入播放列表	
+
+		self.path = './Cache/' + name + '/'
+
+		self.list.clear()
+		for i in range(0, self.A_PlayList.GetCount()):
+			self.list.append('./Cache/' + self.A_PlayList.GetString(i) + '/')
+
+		self.tell = 1
 
 	def A_Thumbnail_ListCtrlOnListBeginDrag(self, event):
 		"""
@@ -169,6 +186,14 @@ class CalcFrame(GUI_Manager.Main):
 		self.Timer.Stop()
 		self.tell = 1
 		self.B_Tell_Control.Disable()
+		self.A_Thumbnail_ListCtrl.Disable()
+		self.A_PlayList.Disable()
+		self.A_B_Refresh.Disable()
+		self.PS_Control.Disable()
+		self.UpOne.Disable()
+		self.DownOne.Disable()
+		
+		cfg = configparser.ConfigParser() # cfg
 
 		with open(pathname, 'r') as file:
 			suffix = os.path.splitext(pathname)[-1] # 获取文件后缀名(包含'.')
@@ -192,9 +217,25 @@ class CalcFrame(GUI_Manager.Main):
 				self.T_FPS.SetLabel(str(self.fps) + 'F/S' + '\n' +
 									str(self.speed) + '(t)F/S')
 
-				self.B_Tell_Control.Enable()
+				cfg.add_section('Vedio')
 
-				self.A_B_RefreshOnButtonClick()
+				cfg.set('Vedio','FPS',str(self.fps))
+				cfg.set('Vedio','X',str(self.x))
+				cfg.set('Vedio','Y',str(self.y))
+				cfg.set('Vedio','Lenth',str(self.length))
+
+				cfg.write(open(imgPath + 'cfg.cfg','w'))
+
+				self.B_Tell_Control.Enable()
+				self.A_Thumbnail_ListCtrl.Enable()
+				self.A_PlayList.Enable()
+				self.A_B_Refresh.Enable()
+				self.PS_Control.Enable()
+				self.UpOne.Enable()
+				self.DownOne.Enable()
+
+				self.Thumbnail_Refresh()
+				##winsound.PlaySound(,winsound.SND_ASYNC)
 
 	def Time_Tick(self, event):
 		"""
@@ -233,6 +274,20 @@ class CalcFrame(GUI_Manager.Main):
 			print('到达播放终点-<')
 			self.tell = 1
 			self.T_Tell.SetLabel(str(self.tell) + 'F')
+
+	def PorS(self, event):
+		"""
+		中控按钮点击事件
+		---
+		开始/停止播放视频
+		"""
+		if self.Timer.IsRunning():
+			self.Timer.Stop()
+			self.PS_Control.SetLabel('▶')
+		else:
+			if self.A_PlayList.GetCount() != 0:
+				self.Timer.Start(self.tick)
+				self.PS_Control.SetLabel('⏸')
 
 	def MainOnSize(self, event):
 		"""
@@ -324,12 +379,11 @@ class CalcFrame(GUI_Manager.Main):
 			self.Guage.SetValue(0)
 			self.speed = round(self.fps * (self.S_Rate.GetValue() / 100), 1)
 			self.tick = int(1000 / self.speed)
-			self.Timer.Start(self.tick)
-			self.A_B_File.Enable()
 			print("视频转图片结束")
 		else:
 			cap.release()
 			print("视频转图片中断")
+
 
 ###########################################################################
 # 文件拖入处理Class
@@ -385,54 +439,6 @@ class FileDropTarget_Thumbnail(wx.FileDropTarget):
 
 		return True
 
-class FileDropTarget_PlayList(wx.FileDropTarget):
-	"""
-	视频播放列表窗口_文件拖动处理类
-	---
-	"""	
-	def __init__(self, window:CalcFrame):
-
-		wx.FileDropTarget.__init__(self)
-		self.window = window # 继承自主GUI
-
-	def OnDragOver(self, x, y, defResult):
-		"""
-		文件拖动进入目标窗口事件
-		---
-		更改GUI外观以提示
-		"""
-		return super().OnDragOver(x, y, defResult)
-
-	def OnDropFiles(self, x, y, filenames):
-		"""
-		文件拖动完成事件
-		---
-		获取文件路径并进行处理
-		"""
-		error_list = []
-
-		for name in filenames:
-			suffix = os.path.splitext(name)[-1] # 获取文件后缀名(包含'.')
-			prefix = os.path.split(os.path.splitext(name)[0])[1] # 获取文件前缀名
-
-			print(name, '文件类型:' + suffix)
-
-			if suffix == '.mp4':
-				wx.CallAfter(self.window.Analysis,name)
-			elif suffix == '':
-				pass
-			else:
-				error_list.append(name)
-
-		Str = '加载以下文件时出现错误：'
-		if len(error_list) != 0:
-			for i in error_list:
-				Str = Str + '\n' + i
-
-			wx.CallAfter(wx.MessageBox, Str + '\n' + '错误原因：不支持的文件类型', caption='文件处理')
-
-		return True
-
 
 ##############################
 # 主函数
@@ -445,10 +451,10 @@ def main():
 
 	app = wx.App(False)
 	Frame_Main = Main.CalcFrame(None)
-	frame = CalcFrame(None)
-	frame.Show(True)
-
+	Frame_Manager = CalcFrame(None)
+	
 	Frame_Main.Show()
+	Frame_Manager.Show()
 
 	windows_name = Frame_Main.GetTitle()
 	windows_API.RUN(player_window_handel=win32gui.FindWindow(None, windows_name))
