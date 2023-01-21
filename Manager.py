@@ -1,3 +1,11 @@
+'''
+运行环境:python3.10.9
+IDLE:vscode
+作者：@DreamBack https://github.com/Puiching-Memory
+
+项目描述:基于wxpython的动态壁纸引擎
+'''
+
 # import
 import os
 import shutil
@@ -6,13 +14,16 @@ import configparser
 import cv2 # 打包后占用内存过大
 import win32gui
 import win32api
+import win32print
 import win32con
 import wx
 import wx.svg
 
-import winsound # windowsAPI播放wav
-import pydub # mp3转wav
-import tinytag # mp4分离mp3
+import threading
+
+##import winsound # windowsAPI播放wav
+##import pydub # mp3转wav
+##import tinytag # mp4分离mp3
 ##import ffmpeg
 
 import GUI_Manager
@@ -28,8 +39,7 @@ class CalcFrame(GUI_Manager.Main):
 		self.fps = 25 # 视频帧率 n/s
 		self.x = 0 # 视频宽 px
 		self.y = 0 # 视频高 px
-		self.sx = win32api.GetSystemMetrics(win32con.SM_CXSCREEN) # 物理屏幕宽 px
-		self.sy = win32api.GetSystemMetrics(win32con.SM_CYSCREEN) # 物理屏幕高 px
+		self.sx ,self.sy= get_real_resolution() # 屏幕物理分辨率 px
 		self.speed = 25 # 播放帧速率 n/s
 		self.tick = 0 # 时钟间隔 ms
 		self.length = 50 # 视频帧总数 f
@@ -87,15 +97,13 @@ class CalcFrame(GUI_Manager.Main):
 				if len(os.listdir(dir_path)) != 0: # 排除空文件夹
 					dir_name.append(name) # 文件夹名list
 					thumbnail_path = dir_path + '/' + os.listdir(dir_path)[0] # 计算缩略图路径
-					lmage_list.Add(wx.Bitmap(wx.Image(thumbnail_path).Scale(120,80))) # 添加到图像列表
-
-		dir_name.reverse() # 图像列表使用追加的方式添加图片,所以ImageList与文件夹名list排序相反,在此将文本列表进行倒序操作
+					lmage_list.Add(wx.Bitmap(wx.Image(thumbnail_path).Scale(120,80,quality=wx.IMAGE_QUALITY_HIGH))) # 添加到图像列表
 
 		self.A_Thumbnail_ListCtrl.AssignImageList(lmage_list,0) # 绑定图像列表
 
 		for i in range(0, len(dir_name)):
 			info = dir_name[i] # 提取文件夹名作为info
-			self.A_Thumbnail_ListCtrl.InsertItem(0,info) # 插入最前端
+			self.A_Thumbnail_ListCtrl.InsertItem(self.A_Thumbnail_ListCtrl.GetItemCount(),info) # 插入最后端
 			
 			self.A_Thumbnail_ListCtrl.SetItemImage(i,i) # 将标签索引与图像列表索引绑定
 
@@ -117,7 +125,18 @@ class CalcFrame(GUI_Manager.Main):
 		for i in range(0, self.A_PlayList.GetCount()):
 			self.list.append('./Cache/' + self.A_PlayList.GetString(i) + '/')
 
-		self.tell = 1
+		try:
+			cfg = self.cfg
+			cfg.read(self.path + 'cfg.cfg')
+
+			self.fps = int(float(cfg.get('Vedio','fps'))) # 视频帧率 n/s
+			self.x = int(cfg.get('Vedio','x')) # 视频宽 px
+			self.y = int(cfg.get('Vedio','y')) # 视频高 px
+			self.speed = self.fps # 播放帧速率 n/s
+			self.length = int(cfg.get('Vedio','lenth')) # 视频帧总数 f
+			self.tell = 1 # 视频当前播放帧 f
+		except Exception as error:
+			print('读取cfg时出现问题',error)
 
 	def A_Thumbnail_ListCtrlOnListBeginDrag(self, event):
 		"""
@@ -246,7 +265,7 @@ class CalcFrame(GUI_Manager.Main):
 		if self.Timer.GetInterval() != self.tick:
 			self.Timer.Stop()
 			self.Timer.Start(self.tick)
-			##print('时钟间隔更改，正在重启')
+			print('时钟间隔更改，正在重启',self.tick)
 
 		path = self.path + str(self.tell).zfill(4) + '.jpg'
 
@@ -257,12 +276,8 @@ class CalcFrame(GUI_Manager.Main):
 
 			bitmap = wx.Bitmap(image)
 
-			temp_dc = wx.MemoryDC()
-			temp_dc.SelectObject(bitmap)
-
-			#dc.DrawBitmap(bitmap, 0, 0)
-			dc.Blit(0, 0, self.sx, self.sy, temp_dc, 0, 0)
-			Frame_Main.Refresh()
+			dc.DrawBitmap(bitmap, 0, 0)
+			Frame_Main.Refresh(eraseBackground=False)
 
 			self.tell += 1
 
@@ -286,6 +301,19 @@ class CalcFrame(GUI_Manager.Main):
 			self.PS_Control.SetLabel('▶')
 		else:
 			if self.A_PlayList.GetCount() != 0:
+				try:
+					cfg = self.cfg
+					cfg.read(self.path + 'cfg.cfg')
+
+					self.fps = int(float(cfg.get('Vedio','fps'))) # 视频帧率 n/s
+					self.x = int(cfg.get('Vedio','x')) # 视频宽 px
+					self.y = int(cfg.get('Vedio','y')) # 视频高 px
+					self.speed = self.fps # 播放帧速率 n/s
+					self.length = int(cfg.get('Vedio','lenth')) # 视频帧总数 f
+					self.tell = 1 # 视频当前播放帧 f
+				except Exception as error:
+					print('读取cfg时出现问题',error)
+
 				self.Timer.Start(self.tick)
 				self.PS_Control.SetLabel('⏸')
 
@@ -460,6 +488,15 @@ def main():
 	windows_API.RUN(player_window_handel=win32gui.FindWindow(None, windows_name))
 
 	app.MainLoop()
+
+def get_real_resolution():
+    """获取真实的分辨率"""
+    hDC = win32gui.GetDC(0)
+    # 横向分辨率
+    w = win32print.GetDeviceCaps(hDC, win32con.DESKTOPHORZRES)
+    # 纵向分辨率
+    h = win32print.GetDeviceCaps(hDC, win32con.DESKTOPVERTRES)
+    return w, h
 
 
 if __name__ == "__main__":

@@ -4,7 +4,10 @@
 import wx
 
 import GUI_Main
-import win32api,win32con
+import win32api
+import win32con
+import win32gui
+import win32print
 
 
 ##############################
@@ -13,34 +16,28 @@ import win32api,win32con
 
 
 class CalcFrame(GUI_Main.Main):
-	def __init__(self, parent):
-		# 定义主函数
-		GUI_Main.Main.__init__(self, parent)
+    def __init__(self, parent):
+        # 定义主函数
+        GUI_Main.Main.__init__(self, parent)
 
-		self.SetDoubleBuffered(True) # 双缓冲
+        self.SetDoubleBuffered(True)  # 双缓冲
 
-		self.SetTitle('RBS_WALP') # 设置窗口标题
-		
-		self.Move(0,0)
+        self.SetTitle('RBS_WALP')  # 设置窗口标题
 
-		screen_Size_X = win32api.GetSystemMetrics(win32con.SM_CXSCREEN)
-		screen_Size_Y = win32api.GetSystemMetrics(win32con.SM_CYSCREEN)
+        self.SetSize(get_real_resolution())
 
-		print(screen_Size_X,screen_Size_Y) # 获取GUI大小
-		
-		self.SetSize(screen_Size_X, screen_Size_Y)
+        self.Move(0, 0)
 
-		self.i = 1
+        self.i = 1
 
+    def MainOnEraseBackground(self, event):
+        pass
 
-	def MainOnEraseBackground(self, event):
-		pass
-	
-	def MainOnPaint(self, event):
-		pass
+    def MainOnPaint(self, event):
+        event.Skip()
 
-	def Close(self, event):
-		self.Destroy()
+    def Close(self, event):
+        self.Destroy()
 
 
 ##############################
@@ -49,12 +46,29 @@ class CalcFrame(GUI_Main.Main):
 
 
 def main():
-	global app
-	app = wx.App(False)
-	frame = CalcFrame(None)
-	frame.Show(True)
-	app.MainLoop()
+    global app
+    app = wx.App(False)
+    frame = CalcFrame(None)
+    frame.Show(True)
+    app.MainLoop()
+
+
+def get_real_resolution():
+    """获取真实的分辨率"""
+    hDC = win32gui.GetDC(0)
+    # 横向分辨率
+    w = win32print.GetDeviceCaps(hDC, win32con.DESKTOPHORZRES)
+    # 纵向分辨率
+    h = win32print.GetDeviceCaps(hDC, win32con.DESKTOPVERTRES)
+    return w, h
+
+
+def get_screen_size():
+    """获取缩放后的分辨率"""
+    screen_Size_X = win32api.GetSystemMetrics(win32con.SM_CXSCREEN)
+    screen_Size_Y = win32api.GetSystemMetrics(win32con.SM_CYSCREEN)
+    return screen_Size_X, screen_Size_Y
+
 
 if __name__ == "__main__":
-	main()
-
+    main()
