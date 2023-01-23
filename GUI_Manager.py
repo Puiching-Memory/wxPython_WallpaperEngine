@@ -17,9 +17,9 @@ import wx.xrc
 class Main ( wx.Frame ):
 
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"wxPython_WallpaperEngine_Manager", pos = wx.DefaultPosition, size = wx.Size( 730,500 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"wxPython_WallpaperEngine_Manager", pos = wx.DefaultPosition, size = wx.Size( 730,520 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 
-		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
+		self.SetSizeHints( wx.Size( 700,400 ), wx.DefaultSize )
 		self.SetBackgroundColour( wx.Colour( 255, 255, 255 ) )
 
 		bSizer2 = wx.BoxSizer( wx.VERTICAL )
@@ -74,7 +74,7 @@ class Main ( wx.Frame ):
 		self.A.SetSizer( bSizer10 )
 		self.A.Layout()
 		bSizer10.Fit( self.A )
-		self.NoteBook.AddPage( self.A, u"资源", False )
+		self.NoteBook.AddPage( self.A, u"资源", True )
 		self.B = wx.Panel( self.NoteBook, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
 		bSizer8 = wx.BoxSizer( wx.VERTICAL )
 
@@ -195,7 +195,7 @@ class Main ( wx.Frame ):
 		self.B.SetSizer( bSizer8 )
 		self.B.Layout()
 		bSizer8.Fit( self.B )
-		self.NoteBook.AddPage( self.B, u"控制", True )
+		self.NoteBook.AddPage( self.B, u"控制", False )
 
 		bSizer2.Add( self.NoteBook, 1, wx.EXPAND |wx.ALL, 5 )
 

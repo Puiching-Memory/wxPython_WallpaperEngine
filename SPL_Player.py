@@ -1,24 +1,28 @@
+'''
+针对wx.DC设计的播放窗口
+主从关系:Manager.py -> SPL_Player.py
+'''
 ##############################
 # import
 ##############################
 import wx
 
-import GUI_Main
+import GUI_SPL
+
 import win32api
 import win32con
 import win32gui
 import win32print
-
 
 ##############################
 # GUI的函数桥接
 ##############################
 
 
-class CalcFrame(GUI_Main.Main):
+class CalcFrame(GUI_SPL.Main):
     def __init__(self, parent):
         # 定义主函数
-        GUI_Main.Main.__init__(self, parent)
+        GUI_SPL.Main.__init__(self, parent)
 
         self.SetDoubleBuffered(True)  # 双缓冲
 

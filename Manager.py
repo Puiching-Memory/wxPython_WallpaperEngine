@@ -28,8 +28,8 @@ import threading
 
 import GUI_Manager
 
-import Main
-import windows_API
+import SPL_Player # 基于wx.DC的软件播放器
+import windows_API # 将窗口载入壁纸层
 
 # GUI类继承
 class CalcFrame(GUI_Manager.Main):
@@ -65,6 +65,8 @@ class CalcFrame(GUI_Manager.Main):
 		
 		self.Thumbnail_Refresh()
 
+		self.Refresh_Size()
+
 	def Close(self, event):
 		"""
 		退出事件
@@ -75,7 +77,7 @@ class CalcFrame(GUI_Manager.Main):
 		self.Timer.Stop()
 		self.Destroy()
 		self.Disable()
-		Frame_Main.Destroy()
+		Frame_SPL.Destroy()
 
 	def Thumbnail_Refresh(self, *event):
 		"""
@@ -270,14 +272,14 @@ class CalcFrame(GUI_Manager.Main):
 		path = self.path + str(self.tell).zfill(4) + '.jpg'
 
 		if self.tell < self.length:
-			dc = wx.ClientDC(Frame_Main)
+			dc = wx.ClientDC(Frame_SPL)
 
 			image = wx.Image(path).Scale(self.sx,self.sy)
 
 			bitmap = wx.Bitmap(image)
 
 			dc.DrawBitmap(bitmap, 0, 0)
-			Frame_Main.Refresh(eraseBackground=False)
+			Frame_SPL.Refresh(eraseBackground=False)
 
 			self.tell += 1
 
@@ -323,8 +325,22 @@ class CalcFrame(GUI_Manager.Main):
 		---
 		调整部分控件的大小以适应其变化
 		"""
+		print(self.GetSize())
 
-		return super().MainOnSize(event)
+		sizex, sizey = self.GetSize()
+		self.A_Thumbnail_ListCtrl.SetMinSize(wx.Size(sizex - 160, sizey - 150))
+		self.Guage.SetMinSize(wx.Size(sizex, 5))
+
+		event.Skip()
+
+	def Refresh_Size(self):
+		"""
+		利用更改大小时窗口的重新排列刷新控件位置
+		---
+		base on Setsize()
+		"""
+		self.SetSize(self.GetSize()[0] - 1, self.GetSize()[1])
+		self.SetSize(self.GetSize()[0] + 1, self.GetSize()[1])
 
 	def T_RateOnLeftDClick(self,event):
 		"""
@@ -475,16 +491,16 @@ class FileDropTarget_Thumbnail(wx.FileDropTarget):
 
 def main():
 	global app
-	global Frame_Main
+	global Frame_SPL
 
 	app = wx.App(False)
-	Frame_Main = Main.CalcFrame(None)
+	Frame_SPL = SPL_Player.CalcFrame(None)
 	Frame_Manager = CalcFrame(None)
 	
-	Frame_Main.Show()
+	Frame_SPL.Show()
 	Frame_Manager.Show()
 
-	windows_name = Frame_Main.GetTitle()
+	windows_name = Frame_SPL.GetTitle()
 	windows_API.RUN(player_window_handel=win32gui.FindWindow(None, windows_name))
 
 	app.MainLoop()
