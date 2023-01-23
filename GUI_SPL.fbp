@@ -55,10 +55,11 @@
             <property name="two_step_creation">0</property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
-            <property name="window_style">wxTRANSPARENT_WINDOW</property>
+            <property name="window_style">wxBORDER_NONE|wxTRANSPARENT_WINDOW</property>
             <property name="xrc_skip_sizer">1</property>
             <event name="OnClose">Close</event>
             <event name="OnEraseBackground">MainOnEraseBackground</event>
+            <event name="OnLeftDown">Close</event>
             <event name="OnPaint">MainOnPaint</event>
         </object>
     </object>

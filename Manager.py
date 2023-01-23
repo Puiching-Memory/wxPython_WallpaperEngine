@@ -4,12 +4,14 @@ IDLE:vscode
 作者：@DreamBack https://github.com/Puiching-Memory
 
 项目描述:基于wxpython的动态壁纸引擎
+
+##文件描述：控制中心/管理/时钟刻/设置/数据传输
+
 '''
 
 # import
 import os
 import shutil
-
 import configparser
 import cv2 # 打包后占用内存过大
 import win32gui
@@ -18,9 +20,7 @@ import win32print
 import win32con
 import wx
 import wx.svg
-
 import threading
-
 ##import winsound # windowsAPI播放wav
 ##import pydub # mp3转wav
 ##import tinytag # mp4分离mp3
@@ -29,6 +29,7 @@ import threading
 import GUI_Manager
 
 import SPL_Player # 基于wx.DC的软件播放器
+import SPL_Engine # SPL图像解码引擎
 import windows_API # 将窗口载入壁纸层
 
 # GUI类继承
@@ -46,8 +47,11 @@ class CalcFrame(GUI_Manager.Main):
 		self.tell = 1 # 视频当前播放帧 f
 		self.path = '' # 视频路径(文件夹路径) str
 		self.list = [] # 视频播放列表(文件夹路径) list
-		self.cfg = configparser.ConfigParser() # cfg
+		self.cfg = configparser.ConfigParser() # cfg设置
 
+		self.SPL_Engine = SPL_Engine.SPL_Engine() #SPL引擎初始化
+
+		#---GUI初始化部分
 		self.NoteBook.SetSelection(0)
 		self.A_Thumbnail_ListCtrl.SetDropTarget(FileDropTarget_Thumbnail(self))
 
@@ -272,7 +276,7 @@ class CalcFrame(GUI_Manager.Main):
 		path = self.path + str(self.tell).zfill(4) + '.jpg'
 
 		if self.tell < self.length:
-			dc = wx.ClientDC(Frame_SPL)
+			dc = wx.WindowDC(Frame_SPL)
 
 			image = wx.Image(path).Scale(self.sx,self.sy)
 
@@ -328,7 +332,9 @@ class CalcFrame(GUI_Manager.Main):
 		print(self.GetSize())
 
 		sizex, sizey = self.GetSize()
+
 		self.A_Thumbnail_ListCtrl.SetMinSize(wx.Size(sizex - 160, sizey - 150))
+		self.A_PlayList.SetMinSize(wx.Size(self.A_PlayList.GetSize()[0], sizey - 150))
 		self.Guage.SetMinSize(wx.Size(sizex, 5))
 
 		event.Skip()

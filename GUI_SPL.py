@@ -17,7 +17,7 @@ import wx.xrc
 class Main ( wx.Frame ):
 
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"SPL_Player", pos = wx.DefaultPosition, size = wx.Size( 400,300 ), style = 0|wx.TRANSPARENT_WINDOW )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"SPL_Player", pos = wx.DefaultPosition, size = wx.Size( 400,300 ), style = 0|wx.BORDER_NONE|wx.TRANSPARENT_WINDOW )
 
 		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 		self.SetBackgroundColour( wx.Colour( 255, 255, 255 ) )
@@ -28,6 +28,7 @@ class Main ( wx.Frame ):
 		# Connect Events
 		self.Bind( wx.EVT_CLOSE, self.Close )
 		self.Bind( wx.EVT_ERASE_BACKGROUND, self.MainOnEraseBackground )
+		self.Bind( wx.EVT_LEFT_DOWN, self.Close )
 		self.Bind( wx.EVT_PAINT, self.MainOnPaint )
 
 	def __del__( self ):
@@ -40,6 +41,7 @@ class Main ( wx.Frame ):
 
 	def MainOnEraseBackground( self, event ):
 		event.Skip()
+
 
 	def MainOnPaint( self, event ):
 		event.Skip()

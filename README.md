@@ -10,6 +10,10 @@ wxpython有自带的视频播放器控件，但是它每次播放完视频后会
 
 瓶颈：软件解算(CPU)在高分辨率(>2K)及高刷新率(>60HZ)的任务下性能表现糟糕
 
+# 结构
+
+Manager.py(管理，时钟刻，设置，数据传输) --> **Engine.py(解码器) & **Player.py(播放器)
+
 # 环境要求
 
 windows10 or 11 (不支持win7及以下系统)
@@ -27,7 +31,7 @@ windows10 or 11 (不支持win7及以下系统)
 
 # 所需库
 
-python3.8标准库
+python3.10标准库
 
 wxpython
 

@@ -1,6 +1,7 @@
 '''
 针对wx.DC设计的播放窗口
-主从关系:Manager.py -> SPL_Player.py
+---
+主从关系:Manager.py -> SPL_Player.py <- GUI_SPL.py <- GUI_SPL.fbp
 '''
 ##############################
 # import
@@ -24,7 +25,7 @@ class CalcFrame(GUI_SPL.Main):
         # 定义主函数
         GUI_SPL.Main.__init__(self, parent)
 
-        self.SetDoubleBuffered(True)  # 双缓冲
+        #self.SetDoubleBuffered(True)  # 双缓冲
 
         self.SetTitle('RBS_WALP')  # 设置窗口标题
 
@@ -35,7 +36,7 @@ class CalcFrame(GUI_SPL.Main):
         self.i = 1
 
     def MainOnEraseBackground(self, event):
-        pass
+        event.Skip()
 
     def MainOnPaint(self, event):
         event.Skip()

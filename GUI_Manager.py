@@ -60,7 +60,7 @@ class Main ( wx.Frame ):
 
 		wSizer31 = wx.WrapSizer( wx.HORIZONTAL, wx.WRAPSIZER_DEFAULT_FLAGS )
 
-		self.A_Thumbnail_ListCtrl = wx.ListCtrl( self.A, wx.ID_ANY, wx.DefaultPosition, wx.Size( 570,400 ), wx.LC_ICON )
+		self.A_Thumbnail_ListCtrl = wx.ListCtrl( self.A, wx.ID_ANY, wx.DefaultPosition, wx.Size( 570,400 ), wx.LC_AUTOARRANGE|wx.LC_ICON )
 		wSizer31.Add( self.A_Thumbnail_ListCtrl, 0, wx.ALL, 5 )
 
 		A_PlayListChoices = []
@@ -74,7 +74,7 @@ class Main ( wx.Frame ):
 		self.A.SetSizer( bSizer10 )
 		self.A.Layout()
 		bSizer10.Fit( self.A )
-		self.NoteBook.AddPage( self.A, u"资源", True )
+		self.NoteBook.AddPage( self.A, u"资源", False )
 		self.B = wx.Panel( self.NoteBook, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
 		bSizer8 = wx.BoxSizer( wx.VERTICAL )
 
@@ -195,7 +195,7 @@ class Main ( wx.Frame ):
 		self.B.SetSizer( bSizer8 )
 		self.B.Layout()
 		bSizer8.Fit( self.B )
-		self.NoteBook.AddPage( self.B, u"控制", False )
+		self.NoteBook.AddPage( self.B, u"控制", True )
 
 		bSizer2.Add( self.NoteBook, 1, wx.EXPAND |wx.ALL, 5 )
 
