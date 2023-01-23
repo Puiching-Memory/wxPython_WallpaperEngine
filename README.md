@@ -1,18 +1,18 @@
 # wxPython_WallpaperEngine
 
-Dynamic desktop wallpaper engine based on wxPython
+[English]  Dynamic desktop wallpaper engine based on wxPython
 
-基于wxpython实现的动态桌面壁纸引擎
+[中文] 基于wxpython实现的动态桌面壁纸引擎
 
 # 技术细节
 
 wxpython有自带的视频播放器控件，但是它每次播放完视频后会自动黑屏。为了实现无缝循环播放，我基于wx.DC尝试构建自定义的视频播放器。由于算法的更改，以前实现的功能暂时不可用。
 
+瓶颈：软件解算(CPU)在高分辨率(>2K)及高刷新率(>60HZ)的任务下性能表现糟糕
+
 # 环境要求
 
-windows10
-
-windows8/7(理论上)
+windows10 or 11 (不支持win7及以下系统)
 
 # 功能计划 || Plan 2022/05/20❤
 
@@ -26,6 +26,8 @@ windows8/7(理论上)
 * [X] 拖放式加载
 
 # 所需库
+
+python3.8标准库
 
 wxpython
 
