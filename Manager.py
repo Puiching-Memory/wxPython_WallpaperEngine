@@ -1,5 +1,5 @@
 '''
-运行环境:python3.10.9
+运行环境:python3.9.10
 IDLE:vscode
 作者：@DreamBack https://github.com/Puiching-Memory
 
@@ -13,23 +13,21 @@ IDLE:vscode
 import os
 import shutil
 import configparser
-import cv2 # 打包后占用内存过大
+
 import win32gui
 import win32api
 import win32print
 import win32con
 import wx
-import wx.svg
+import wx.svg 
 import threading
-##import winsound # windowsAPI播放wav
-##import pydub # mp3转wav
-##import tinytag # mp4分离mp3
-##import ffmpeg
+
+import win32mica #win11云母实现
 
 import GUI_Manager
 
 import SPL_Player # 基于wx.DC的软件播放器
-import SPL_Engine # SPL图像解码引擎
+import MFC_Player # 基于MFPlay的windows media foundation架构播放器
 import windows_API # 将窗口载入壁纸层
 
 # GUI类继承
@@ -48,8 +46,6 @@ class CalcFrame(GUI_Manager.Main):
 		self.path = '' # 视频路径(文件夹路径) str
 		self.list = [] # 视频播放列表(文件夹路径) list
 		self.cfg = configparser.ConfigParser() # cfg设置
-
-		self.SPL_Engine = SPL_Engine.SPL_Engine() #SPL引擎初始化
 
 		#---GUI初始化部分
 		self.NoteBook.SetSelection(0)
@@ -70,6 +66,9 @@ class CalcFrame(GUI_Manager.Main):
 		self.Thumbnail_Refresh()
 
 		self.Refresh_Size()
+
+		mode = win32mica.MICAMODE.DARK  #为主窗口添加云母效果
+		win32mica.ApplyMica(self.GetHandle(), mode)
 
 	def Close(self, event):
 		"""
@@ -201,127 +200,6 @@ class CalcFrame(GUI_Manager.Main):
 				wx.LogError('Cannot open file || 载入文件失败！' + '\n' 
 							+ '错误捕获：' + str(error))
 
-	def Analysis(self, pathname):
-		"""
-		非事件_视频分析处理
-		---
-		以减少代码重复率
-		"""
-
-		self.Timer.Stop()
-		self.tell = 1
-		self.B_Tell_Control.Disable()
-		self.A_Thumbnail_ListCtrl.Disable()
-		self.A_PlayList.Disable()
-		self.A_B_Refresh.Disable()
-		self.PS_Control.Disable()
-		self.UpOne.Disable()
-		self.DownOne.Disable()
-		
-		cfg = configparser.ConfigParser() # cfg
-
-		with open(pathname, 'r') as file:
-			suffix = os.path.splitext(pathname)[-1] # 获取文件后缀名(包含'.')
-			prefix = os.path.split(os.path.splitext(pathname)[0])[1] # 获取文件前缀名
-			imgPath = './Cache/' + prefix + '/'
-			self.path = imgPath
-
-			if suffix == '.mp4' or suffix == '.mov':
-				if not os.path.exists('./Cache/'):
-					os.mkdir('./Cache/')
-
-				if not os.path.exists(imgPath):
-					os.mkdir(imgPath)
-				else:
-					shutil.rmtree(imgPath)
-					os.mkdir(imgPath)
-
-				self.Video2Pic(videoPath=pathname, imgPath=imgPath) # OpenCV可以多线程执行，但只有所有任务完成后才运行这里的下一行
-				self.T_Size.SetLabel(str(self.x) + ',' + str(self.y))
-				self.T_Length.SetLabel(str(self.length) + 'F')
-				self.T_FPS.SetLabel(str(self.fps) + 'F/S' + '\n' +
-									str(self.speed) + '(t)F/S')
-
-				cfg.add_section('Vedio')
-
-				cfg.set('Vedio','FPS',str(self.fps))
-				cfg.set('Vedio','X',str(self.x))
-				cfg.set('Vedio','Y',str(self.y))
-				cfg.set('Vedio','Lenth',str(self.length))
-
-				cfg.write(open(imgPath + 'cfg.cfg','w'))
-
-				self.B_Tell_Control.Enable()
-				self.A_Thumbnail_ListCtrl.Enable()
-				self.A_PlayList.Enable()
-				self.A_B_Refresh.Enable()
-				self.PS_Control.Enable()
-				self.UpOne.Enable()
-				self.DownOne.Enable()
-
-				self.Thumbnail_Refresh()
-				##winsound.PlaySound(,winsound.SND_ASYNC)
-
-	def Time_Tick(self, event):
-		"""
-		计时器事件
-		---
-		循环下一张图片，并将其绘制到DC上
-		"""
-		if self.Timer.GetInterval() != self.tick:
-			self.Timer.Stop()
-			self.Timer.Start(self.tick)
-			print('时钟间隔更改，正在重启',self.tick)
-
-		path = self.path + str(self.tell).zfill(4) + '.jpg'
-
-		if self.tell < self.length:
-			dc = wx.WindowDC(Frame_SPL)
-
-			image = wx.Image(path).Scale(self.sx,self.sy)
-
-			bitmap = wx.Bitmap(image)
-
-			dc.DrawBitmap(bitmap, 0, 0)
-			Frame_SPL.Refresh(eraseBackground=False)
-
-			self.tell += 1
-
-			self.T_Tell.SetLabel(str(self.tell) + 'F')
-			
-			self.B_Tell_Control.SetValue(round(self.tell / self.length * 100))
-
-		else:
-			print('到达播放终点-<')
-			self.tell = 1
-			self.T_Tell.SetLabel(str(self.tell) + 'F')
-
-	def PorS(self, event):
-		"""
-		中控按钮点击事件
-		---
-		开始/停止播放视频
-		"""
-		if self.Timer.IsRunning():
-			self.Timer.Stop()
-			self.PS_Control.SetLabel('▶')
-		else:
-			if self.A_PlayList.GetCount() != 0:
-				try:
-					cfg = self.cfg
-					cfg.read(self.path + 'cfg.cfg')
-
-					self.fps = int(float(cfg.get('Vedio','fps'))) # 视频帧率 n/s
-					self.x = int(cfg.get('Vedio','x')) # 视频宽 px
-					self.y = int(cfg.get('Vedio','y')) # 视频高 px
-					self.speed = self.fps # 播放帧速率 n/s
-					self.length = int(cfg.get('Vedio','lenth')) # 视频帧总数 f
-					self.tell = 1 # 视频当前播放帧 f
-				except Exception as error:
-					print('读取cfg时出现问题',error)
-
-				self.Timer.Start(self.tick)
-				self.PS_Control.SetLabel('⏸')
 
 	def MainOnSize(self, event):
 		"""
@@ -385,55 +263,6 @@ class CalcFrame(GUI_Manager.Main):
 		print(self.tell)
 		
 		event.Skip()		
-
-	# ----------------------------------------------------------------
-
-	def Video2Pic(self, videoPath, imgPath):
-		##videoPath = "youvideoPath"  # 读取视频路径
-		##imgPath = "youimgPath"  # 保存图片路径
-
-		cap = cv2.VideoCapture(videoPath)
-
-		fps = cap.get(cv2.CAP_PROP_FPS)  # 获取帧率
-		self.fps = fps
-
-		width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))  # 获取宽度
-		self.x = width
-
-		height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))  # 获取高度
-		self.y = height
-
-		self.length = int(cap.get(7)) # 视频帧总数
-
-		print('视频帧率：', fps, '画幅：', width, height)
-
-		suc = cap.isOpened()  # 是否成功打开
-		frame_count = 0
-
-		self.A_B_File.Disable()
-		try:
-			while suc:
-				if not self.IsEnabled():
-					break
-
-				frame_count += 1
-				suc, frame = cap.read()
-				path = imgPath + str(frame_count).zfill(4) + '.jpg'
-				cv2.imwrite(path, frame)
-				cv2.waitKey(1)
-				print(path,int(cap.get(1) / cap.get(7) * 100),'%')
-				self.Guage.SetValue(int(cap.get(1) / cap.get(7) * 100))
-				self.T_Analysis_Text.SetLabel('>>>' + path + ' || ' + str(int(cap.get(1) / cap.get(7) * 100)) + '%')
-		except:
-			cap.release()
-			self.Guage.SetValue(0)
-			self.speed = round(self.fps * (self.S_Rate.GetValue() / 100), 1)
-			self.tick = int(1000 / self.speed)
-			print("视频转图片结束")
-		else:
-			cap.release()
-			print("视频转图片中断")
-
 
 ###########################################################################
 # 文件拖入处理Class
@@ -512,14 +341,13 @@ def main():
 	app.MainLoop()
 
 def get_real_resolution():
-    """获取真实的分辨率"""
-    hDC = win32gui.GetDC(0)
-    # 横向分辨率
-    w = win32print.GetDeviceCaps(hDC, win32con.DESKTOPHORZRES)
-    # 纵向分辨率
-    h = win32print.GetDeviceCaps(hDC, win32con.DESKTOPVERTRES)
-    return w, h
-
+	"""获取真实的分辨率"""
+	hDC = win32gui.GetDC(0)
+	# 横向分辨率
+	w = win32print.GetDeviceCaps(hDC, win32con.DESKTOPHORZRES)
+	# 纵向分辨率
+	h = win32print.GetDeviceCaps(hDC, win32con.DESKTOPVERTRES)
+	return w, h
 
 if __name__ == "__main__":
 	main()

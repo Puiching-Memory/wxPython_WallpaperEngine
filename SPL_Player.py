@@ -34,7 +34,7 @@ class CalcFrame(GUI_SPL.Main):
         self.Move(0, 0)
 
         self.i = 1
-
+        
     def MainOnEraseBackground(self, event):
         event.Skip()
 
