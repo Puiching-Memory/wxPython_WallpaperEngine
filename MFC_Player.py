@@ -60,19 +60,25 @@ class CalcFrame(GUI_MFC.Main):
 			return -1
 
 		g_pPlayer = ctypes.c_char_p()
+
+		##CMPFUNC = ctypes.CFUNCTYPE(ctypes.POINTER(ctypes.c_int))
+		##cb = CMPFUNC(REA)
 		
 		re = MFPlay.MFPCreateMediaPlayer(
 			url,
-			True,  # 自动播放
-			0,  # 标志
-			None,  # 回调
+			True,  # 是否自动播放
+			0,  # Flags -> https://learn.microsoft.com/zh-cn/windows/win32/api/mfplay/ne-mfplay-_mfp_creation_options
+			None,  # 在此提供回调函数
 			hwnd,
-			ctypes.byref(g_pPlayer),  # 指针类型:IMFPMediaPlayer
+			ctypes.byref(g_pPlayer),  # 接收 指向IMFPMediaPlayer接口的指针
 		)
 		
-
-		return re,g_pPlayer,g_pPlayer.value
-
+		print("g_pPlayer.value:" ,g_pPlayer.value,g_pPlayer)
+		print("re:",re)
+		
+class IMFPMediaPlayer():
+	def __init__(self, number):
+		self._as_parameter_ = number
 
 ##############################
 # 主函数
@@ -104,12 +110,13 @@ def get_screen_size():
 
 
 def REA():
-	print('call')
+	print('call-----------')
+	return 0
 
 
 if __name__ == "__main__":
 	app = wx.App(False)
 	frame = CalcFrame(None)
 	frame.Show(True)
-	print(frame.Play('src/bg.mp4',frame.GetHandle()))
+	frame.Play('src/bg.mp4',frame.GetHandle())
 	app.MainLoop()
