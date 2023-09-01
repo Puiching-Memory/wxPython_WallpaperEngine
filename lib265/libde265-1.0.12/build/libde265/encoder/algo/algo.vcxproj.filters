@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\algo.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\coding-options.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\ctb-qscale.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\cb-split.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\cb-intrapartmode.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\cb-interpartmode.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\cb-skip.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\cb-intra-inter.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\cb-mergeindex.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\tb-split.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\tb-transform.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\tb-intrapredmode.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\tb-rateestim.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\pb-mv.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\algo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\coding-options.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\ctb-qscale.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\cb-split.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\cb-intrapartmode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\cb-interpartmode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\cb-skip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\cb-intra-inter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\cb-mergeindex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\tb-split.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\tb-transform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\tb-intrapredmode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\tb-rateestim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\pb-mv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265\encoder\algo\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{FA265003-9438-3ED7-80CC-C1A5E10C6EE8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{821A300B-422F-3B91-B886-112DE8CA4295}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

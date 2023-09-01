@@ -1,0 +1,10 @@
+^C:\USERS\11386\DESKTOP\WXPYTHON_WALLPAPERENGINE\LIB265\LIBDE265-1.0.12\LIBDE265\ENCODER\CMAKELISTS.TXT
+setlocal
+D:\Cmake\bin\cmake.exe -SC:/Users/11386/Desktop/wxPython_WallpaperEngine/lib265/libde265-1.0.12 -BC:/Users/11386/Desktop/wxPython_WallpaperEngine/lib265/libde265-1.0.12/build --check-stamp-file C:/Users/11386/Desktop/wxPython_WallpaperEngine/lib265/libde265-1.0.12/build/libde265/encoder/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

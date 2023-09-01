@@ -1,0 +1,19 @@
+﻿  Building Custom Rule C:/Users/11386/Desktop/wxPython_WallpaperEngine/lib265/libde265-1.0.12/dec265/CMakeLists.txt
+  dec265.cc
+C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265/cabac.h(172,46): warning C4244: “return”: 从“uint64_t”转换到“int”，可能丢失数据
+C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265/sps.h(156,69): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\libde265/image.h(325,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\dec265\dec265.cc(119,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\dec265\dec265.cc(705,15): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\dec265\dec265.cc(709,18): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\dec265\dec265.cc(724,15): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\dec265\dec265.cc(668,22): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\dec265\dec265.cc(677,10): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\dec265\dec265.cc(688,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  getopt.c
+  getopt_long.c
+C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\extra\getopt_long.c(76,36): warning C4028: 形参 2 与声明不同
+C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\extra\getopt_long.c(173,33): warning C4244: “=”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\extra\getopt_long.c(176,23): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  正在生成代码...
+  dec265.vcxproj -> C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\build\dec265\Release\dec265.exe

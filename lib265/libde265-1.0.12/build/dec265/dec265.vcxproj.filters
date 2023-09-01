@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\dec265\dec265.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\extra\getopt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\extra\getopt_long.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265-1.0.12\dec265\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{821A300B-422F-3B91-B886-112DE8CA4295}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
