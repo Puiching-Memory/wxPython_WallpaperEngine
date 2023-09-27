@@ -1,0 +1,58 @@
+============== types ==================
+{   'Dav1dContext': Type('struct Dav1dContext'),
+    'Dav1dLogger': Type('struct Dav1dLogger'),
+    'Dav1dRef': Type('struct Dav1dRef'),
+    'Dav1dSettings': Type('struct Dav1dSettings'),
+    'enum D': Type('enum', 'D'),        
+    'enum Dav1dEventFlags': Type('enum', 'Dav1dEventFlags'),
+    'enum Dav1dInloopFilterType': Type('enum', 'Dav1dInloopFilterType'),        
+    'struct Dav1dContext': Type('struct', 'Dav1dContext'),
+    'struct Dav1dLogger': Type('struct', 'Dav1dLogger'),
+    'struct Dav1dRef': Type('struct', 'Dav1dRef'),
+    'struct Dav1dSettings': Type('struct', 'Dav1dSettings')}
+============== variables ==================
+{}
+============== fnmacros ==================
+{}
+============== macros ==================
+{'DAV1D_H': '', 'DAV1D_MAX_FRAME_DELAY': '256', 'DAV1D_MAX_THREADS': '256'}     
+============== structs ==================
+{   'Dav1dContext': Struct(),
+    'Dav1dLogger': Struct(('cookie', Type('void', '*'), None), ('callback', Type('void', (('cookie', Type('void', '*'), None), ('format', Type('char', '*', type_quals=(('const',), ())), None), ('ap', Type('va_list'), None)), '*'), None)),  
+    'Dav1dRef': Struct(),
+    'Dav1dSettings': Struct(('n_threads', Type('int'), None), ('max_frame_delay', Type('int'), None), ('apply_grain', Type('int'), None), ('operating_point', Type('int'), None), ('all_layers', Type('int'), None), ('frame_size_limit', Type('unsigned'), None), ('allocator', Type('Dav1dPicAllocator'), None), ('logger', Type('Dav1dLogger'), None), ('strict_std_compliance', Type('int'), None), ('output_invisible_frames', Type('int'), None), ('inloop_filters', Type('enum D'), None), ('reserved', Type('uint8_t', [20]), None))}
+============== unions ==================
+{}
+============== enums ================== 
+{   'D': {},
+    'Dav1dEventFlags': {   'DAV1D_EVENT_FLAG_NEW_OP_PARAMS_INFO': 2,
+                           'DAV1D_EVENT_FLAG_NEW_SEQUENCE': 1},
+    'Dav1dInloopFilterType': {   'DAV1D_INLOOPFILTER_ALL': 7,
+                                 'DAV1D_INLOOPFILTER_CDEF': 2,
+                                 'DAV1D_INLOOPFILTER_DEBLOCK': 1,
+                                 'DAV1D_INLOOPFILTER_NONE': 0,
+                                 'DAV1D_INLOOPFILTER_RESTORATION': 4}}
+============== functions ==================
+{   'dav1d_apply_grain': Type(Type('int'), (('c', Type('Dav1dContext', '*'), None), ('out', Type('Dav1dPicture', '*'), None), ('in', Type('Dav1dPicture', '*', type_quals=(('const',), ())), None))),   
+    'dav1d_close': Type(Type('void'), (('c_out', Type('Dav1dContext', '*', '*'), None),)),
+    'dav1d_default_settings': Type(Type('void'), (('s', Type('Dav1dSettings', '*'), None),)),
+    'dav1d_flush': Type(Type('void'), (('c', Type('Dav1dContext', '*'), None),)),
+    'dav1d_get_decode_error_data_props': Type(Type('int'), (('c', Type('Dav1dContext', '*'), None), ('out', Type('Dav1dDataProps', '*'), None))),
+    'dav1d_get_event_flags': Type(Type('int'), (('c', Type('Dav1dContext', '*'), None), ('flags', Type('enum D', '*'), None))),
+    'dav1d_get_frame_delay': Type(Type('int'), (('s', Type('Dav1dSettings', '*', type_quals=(('const',), ())), None),)),
+    'dav1d_get_picture': Type(Type('int'), (('c', Type('Dav1dContext', '*'), None), ('out', Type('Dav1dPicture', '*'), None))),
+    'dav1d_open': Type(Type('int'), (('c_out', Type('Dav1dContext', '*', '*'), None), ('s', Type('Dav1dSettings', '*', type_quals=(('const',), ())), None))),   
+    'dav1d_parse_sequence_header': Type(Type('int'), (('out', Type('Dav1dSequenceHeader', '*'), None), ('buf', Type('uint8_t', '*', type_quals=(('const',), ())), None), ('sz', Type('size_t', type_quals=(('const',),)), None))),
+    'dav1d_send_data': Type(Type('int'), (('c', Type('Dav1dContext', '*'), None), ('in', Type('Dav1dData', '*'), None))),
+    'dav1d_version': Type(Type('char', '*', type_quals=(('const',), ())), ((None, Type('void'), None),))}
+============== values ==================
+{   'DAV1D_EVENT_FLAG_NEW_OP_PARAMS_INFO': 2,
+    'DAV1D_EVENT_FLAG_NEW_SEQUENCE': 1, 
+    'DAV1D_H': None,
+    'DAV1D_INLOOPFILTER_ALL': 7,        
+    'DAV1D_INLOOPFILTER_CDEF': 2,       
+    'DAV1D_INLOOPFILTER_DEBLOCK': 1,    
+    'DAV1D_INLOOPFILTER_NONE': 0,       
+    'DAV1D_INLOOPFILTER_RESTORATION': 4,
+    'DAV1D_MAX_FRAME_DELAY': 256,       
+    'DAV1D_MAX_THREADS': 256}

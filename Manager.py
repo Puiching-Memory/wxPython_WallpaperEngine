@@ -30,6 +30,8 @@ import SPL_Player # 基于wx.DC的软件播放器
 import MFC_Player # 基于MFPlay的windows media foundation架构播放器
 import windows_API # 将窗口载入壁纸层
 
+#doc:https://blog.csdn.net/Just_bg/article/details/116887990
+
 # GUI类继承
 class CalcFrame(GUI_Manager.Main):
 	def __init__(self, parent):
