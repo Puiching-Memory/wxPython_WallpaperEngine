@@ -1,37 +1,55 @@
 import ctypes
 
-clib = ctypes.CDLL(r'C:\Users\11386\Desktop\wxPython_WallpaperEngine\lib265\libde265.dll')
+libde265 = ctypes.CDLL(r'./libde265.dll')
+print(libde265)
 
-DE265_ERROR_CODED_PARAMETER_OUT_OF_RANGE = 8
-DE265_ERROR_WAITING_FOR_INPUT_DATA = 13
-DE265_OK = 0
+VERSION = str(libde265.de265_get_version_number_major())+'.'+str(libde265.de265_get_version_number_minor())+'.'+str(libde265.de265_get_version_number_maintenance())
 
-de265_decoder_context = clib.de265_new_decoder()
-
-# <----Bug here
-err = clib.de265_start_worker_threads(de265_decoder_context,1)
+print('libde265:',VERSION)
 
 
-with open(r"C:\Users\11386\Desktop\wxPython_WallpaperEngine\src\H265.mp4",'rb') as data:
-    i = 0
-    position = 0
-    more = ctypes.c_long(1)
-    while more.value == 1:
-        err = clib.de265_decode(de265_decoder_context, more)
-
-        if err == DE265_ERROR_WAITING_FOR_INPUT_DATA:
-            decode = data.read(position + 10000)
-            lenth = len(decode)
-            err = clib.de265_push_data(de265_decoder_context,decode,lenth,0)
-        elif err == 0:
-            img = clib.de265_get_next_picture(de265_decoder_context)
-            i += 1
-
+class de265_image(ctypes.Structure):  
+    _fields_ = [("width", ctypes.c_int),  # 假设结构体内有一个表示宽度的成员  
+                ("height", ctypes.c_int),  # 和一个表示高度的成员  
+                # ... 其他可能的成员  
+                ]  
     
-    print(i)
-    
-    err = clib.de265_flush_data(de265_decoder_context)
-    print(err)
-    
-    
-err = clib.de265_free_decoder(de265_decoder_context)
+libde265.de265_new_decoder.restype = ctypes.POINTER(ctypes.c_void_p)  
+libde265.de265_new_decoder.argtypes = None
+libde265.de265_push_data.restype = ctypes.c_int
+#libde265.de265_push_data.argtypes = [ctypes.POINTER(ctypes.c_void_p),ctypes.POINTER(ctypes.c_void_p)]
+libde265.de265_decode.restype = ctypes.c_int
+libde265.de265_decode.argtypes = [ctypes.POINTER(ctypes.c_void_p),ctypes.POINTER(ctypes.c_int)]  
+libde265.de265_get_next_picture.restype = ctypes.POINTER(de265_image)
+libde265.de265_get_next_picture.argtypes = [ctypes.POINTER(ctypes.c_void_p)]
+libde265.de265_get_image_width.restype = ctypes.c_int
+libde265.de265_get_image_width.argtypes = [ctypes.POINTER(de265_image),ctypes.c_int]
+
+
+de265_decoder_context = libde265.de265_new_decoder()
+
+de265_error = libde265.de265_start_worker_threads(de265_decoder_context, 1)
+
+
+with open(r'2233.mp4','rb') as file:
+    data = bytes(file.read())
+    print(len(data))
+
+more = ctypes.c_int()
+for i in range(0,len(data),102400):
+    #print(len(data[i:i+102400]))
+    data_clip = data[i:i+102400]
+    data_buffer = ctypes.byref(ctypes.create_string_buffer(data_clip))
+
+    de265_error = libde265.de265_push_data(de265_decoder_context, data_buffer, len(data_clip),0, None)
+    #print(de265_error)
+    de265_error = libde265.de265_decode(de265_decoder_context, ctypes.byref(more))
+    print(de265_error,more.value)
+
+    if de265_error != 13:
+        image_ptr = libde265.de265_get_next_picture(de265_decoder_context)
+        #image = ctypes.cast(image_ptr,ctypes.POINTER(de265_image)).contents
+        #width = libde265.de265_get_image_width(image_ptr,0)
+        #print(width)
+        #print(de265_image.width)
+        pass

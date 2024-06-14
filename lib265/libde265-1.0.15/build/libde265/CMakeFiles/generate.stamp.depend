@@ -1,0 +1,6 @@
+# CMake generation dependency list for this directory.
+D:/Cmake/share/cmake-3.30/Modules/BasicConfigVersion-ExactVersion.cmake.in
+D:/Cmake/share/cmake-3.30/Modules/CMakePackageConfigHelpers.cmake
+D:/Cmake/share/cmake-3.30/Modules/WriteBasicConfigVersionFile.cmake
+D:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15/libde265.pc.in
+D:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15/libde265/CMakeLists.txt

@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E10C3BCF-9BE6-3068-B048-D93D4A8968D8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ZERO_CHECK</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\extra;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\extra;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\extra;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\extra;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\b18ae439355f97dfd1a4f3bccb0af06f\generate.stamp.rule">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Cmake\bin\cmake.exe -SD:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15 -BD:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15/build/libde265.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Cmake\share\cmake-3.30\Modules\BasicConfigVersion-ExactVersion.cmake.in;D:\Cmake\share\cmake-3.30\Modules\CMakeCInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckCCompilerFlag.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckCXXSymbolExists.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckFunctionExists.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckLibraryExists.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckSymbolExists.cmake;D:\Cmake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Cmake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;D:\Cmake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;D:\Cmake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;D:\Cmake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;D:\Cmake\share\cmake-3.30\Modules\FindPackageMessage.cmake;D:\Cmake\share\cmake-3.30\Modules\FindThreads.cmake;D:\Cmake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Cmake\share\cmake-3.30\Modules\Internal\CheckCompilerFlag.cmake;D:\Cmake\share\cmake-3.30\Modules\Internal\CheckFlagCommonConfig.cmake;D:\Cmake\share\cmake-3.30\Modules\Internal\CheckSourceCompiles.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;D:\Cmake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\3.30.0-rc1\CMakeCCompiler.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\3.30.0-rc1\CMakeCXXCompiler.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\3.30.0-rc1\CMakeRCCompiler.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\3.30.0-rc1\CMakeSystem.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\dec265\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265.pc.in;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\de265-version.h.in;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\x86\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\x86\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\dec265\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</BuildInParallel>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Cmake\bin\cmake.exe -SD:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15 -BD:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15/build/libde265.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Cmake\share\cmake-3.30\Modules\BasicConfigVersion-ExactVersion.cmake.in;D:\Cmake\share\cmake-3.30\Modules\CMakeCInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckCCompilerFlag.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckCXXSymbolExists.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckFunctionExists.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckLibraryExists.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckSymbolExists.cmake;D:\Cmake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Cmake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;D:\Cmake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;D:\Cmake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;D:\Cmake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;D:\Cmake\share\cmake-3.30\Modules\FindPackageMessage.cmake;D:\Cmake\share\cmake-3.30\Modules\FindThreads.cmake;D:\Cmake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Cmake\share\cmake-3.30\Modules\Internal\CheckCompilerFlag.cmake;D:\Cmake\share\cmake-3.30\Modules\Internal\CheckFlagCommonConfig.cmake;D:\Cmake\share\cmake-3.30\Modules\Internal\CheckSourceCompiles.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;D:\Cmake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\3.30.0-rc1\CMakeCCompiler.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\3.30.0-rc1\CMakeCXXCompiler.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\3.30.0-rc1\CMakeRCCompiler.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\3.30.0-rc1\CMakeSystem.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\dec265\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265.pc.in;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\de265-version.h.in;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\x86\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\x86\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\dec265\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</BuildInParallel>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Cmake\bin\cmake.exe -SD:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15 -BD:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15/build/libde265.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Cmake\share\cmake-3.30\Modules\BasicConfigVersion-ExactVersion.cmake.in;D:\Cmake\share\cmake-3.30\Modules\CMakeCInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckCCompilerFlag.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckCXXSymbolExists.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckFunctionExists.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckLibraryExists.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckSymbolExists.cmake;D:\Cmake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Cmake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;D:\Cmake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;D:\Cmake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;D:\Cmake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;D:\Cmake\share\cmake-3.30\Modules\FindPackageMessage.cmake;D:\Cmake\share\cmake-3.30\Modules\FindThreads.cmake;D:\Cmake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Cmake\share\cmake-3.30\Modules\Internal\CheckCompilerFlag.cmake;D:\Cmake\share\cmake-3.30\Modules\Internal\CheckFlagCommonConfig.cmake;D:\Cmake\share\cmake-3.30\Modules\Internal\CheckSourceCompiles.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;D:\Cmake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\3.30.0-rc1\CMakeCCompiler.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\3.30.0-rc1\CMakeCXXCompiler.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\3.30.0-rc1\CMakeRCCompiler.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\3.30.0-rc1\CMakeSystem.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\dec265\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265.pc.in;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\de265-version.h.in;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\x86\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\x86\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\dec265\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</BuildInParallel>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Cmake\bin\cmake.exe -SD:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15 -BD:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15/build/libde265.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Cmake\share\cmake-3.30\Modules\BasicConfigVersion-ExactVersion.cmake.in;D:\Cmake\share\cmake-3.30\Modules\CMakeCInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;D:\Cmake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckCCompilerFlag.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckCXXSymbolExists.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckFunctionExists.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckLibraryExists.cmake;D:\Cmake\share\cmake-3.30\Modules\CheckSymbolExists.cmake;D:\Cmake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Cmake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;D:\Cmake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;D:\Cmake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;D:\Cmake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;D:\Cmake\share\cmake-3.30\Modules\FindPackageMessage.cmake;D:\Cmake\share\cmake-3.30\Modules\FindThreads.cmake;D:\Cmake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Cmake\share\cmake-3.30\Modules\Internal\CheckCompilerFlag.cmake;D:\Cmake\share\cmake-3.30\Modules\Internal\CheckFlagCommonConfig.cmake;D:\Cmake\share\cmake-3.30\Modules\Internal\CheckSourceCompiles.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\Windows.cmake;D:\Cmake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;D:\Cmake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\3.30.0-rc1\CMakeCCompiler.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\3.30.0-rc1\CMakeCXXCompiler.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\3.30.0-rc1\CMakeRCCompiler.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\3.30.0-rc1\CMakeSystem.cmake;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\dec265\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265.pc.in;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\de265-version.h.in;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\CMakeLists.txt;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\x86\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\x86\CMakeFiles\generate.stamp;D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\dec265\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

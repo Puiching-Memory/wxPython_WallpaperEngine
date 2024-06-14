@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\alloc_pool.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\bitstream.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\cabac.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\configparam.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\contextmodel.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\de265.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\deblock.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\decctx.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\en265.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\fallback-dct.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\fallback-motion.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\fallback.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image-io.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\intrapred.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\md5.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\motion.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\pps.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\quality.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\refpic.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sao.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\scan.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sei.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\slice.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sps.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\threads.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\transform.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\visualize.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\vps.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\vui.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\extra\win32cond.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\extra\win32cond.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\encoder.dir\$(Configuration)\encoder-core.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\encoder.dir\$(Configuration)\encoder-types.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\encoder.dir\$(Configuration)\encoder-params.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\encoder.dir\$(Configuration)\encoder-context.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\encoder.dir\$(Configuration)\encoder-syntax.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\encoder.dir\$(Configuration)\encoder-intrapred.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\encoder.dir\$(Configuration)\encoder-motion.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\encoder.dir\$(Configuration)\encpicbuf.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\encoder.dir\$(Configuration)\sop.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\algo.dir\$(Configuration)\algo.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\algo.dir\$(Configuration)\coding-options.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\algo.dir\$(Configuration)\ctb-qscale.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\algo.dir\$(Configuration)\cb-split.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\algo.dir\$(Configuration)\cb-intrapartmode.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\algo.dir\$(Configuration)\cb-interpartmode.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\algo.dir\$(Configuration)\cb-skip.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\algo.dir\$(Configuration)\cb-intra-inter.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\algo.dir\$(Configuration)\cb-mergeindex.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\algo.dir\$(Configuration)\tb-split.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\algo.dir\$(Configuration)\tb-transform.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\algo.dir\$(Configuration)\tb-intrapredmode.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\algo.dir\$(Configuration)\tb-rateestim.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\algo.dir\$(Configuration)\pb-mv.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\x86\x86.dir\$(Configuration)\sse.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\x86\x86_sse.dir\$(Configuration)\sse-motion.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\x86\x86_sse.dir\$(Configuration)\sse-dct.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{597B3E00-C42E-300B-9A82-41CBDD928832}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Libraries">
+      <UniqueIdentifier>{7B794C8E-99BD-30EB-A552-4A1816037A13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{CF353001-E4B3-30A0-ACA0-61B8E140A7B3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

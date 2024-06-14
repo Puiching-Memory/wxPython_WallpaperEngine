@@ -1,0 +1,10 @@
+^D:\GITHUB\WXPYTHON_WALLPAPERENGINE\LIB265\LIBDE265-1.0.15\BUILD\CMAKEFILES\B18AE439355F97DFD1A4F3BCCB0AF06F\GENERATE.STAMP.RULE
+setlocal
+D:\Cmake\bin\cmake.exe -SD:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15 -BD:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15/build/libde265.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
