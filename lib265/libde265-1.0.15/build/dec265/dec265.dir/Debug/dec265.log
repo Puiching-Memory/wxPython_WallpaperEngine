@@ -1,0 +1,19 @@
+﻿  Building Custom Rule D:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15/dec265/CMakeLists.txt
+  dec265.cc
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\cabac.h(172,46): warning C4244: “return”: 从“uint64_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sps.h(156,69): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image.h(325,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\dec265\dec265.cc(124,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\dec265\dec265.cc(714,15): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\dec265\dec265.cc(728,13): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\dec265\dec265.cc(744,15): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\dec265\dec265.cc(673,22): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\dec265\dec265.cc(686,10): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\dec265\dec265.cc(697,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  getopt.c
+  getopt_long.c
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\extra\getopt_long.c(76,36): warning C4028: 形参 2 与声明不同
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\extra\getopt_long.c(173,33): warning C4244: “=”: 从“__int64”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\extra\getopt_long.c(176,23): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  正在生成代码...
+  dec265.vcxproj -> D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\dec265\Debug\dec265.exe

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\encoder-core.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\encoder-types.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\encoder-params.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\encoder-context.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\encoder-syntax.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\encoder-intrapred.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\encoder-motion.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\encpicbuf.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\sop.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\encoder-core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\encoder-types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\encoder-params.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\encoder-context.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\encoder-syntax.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\encoder-intrapred.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\encoder-motion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\encpicbuf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\sop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{597B3E00-C42E-300B-9A82-41CBDD928832}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{CF353001-E4B3-30A0-ACA0-61B8E140A7B3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

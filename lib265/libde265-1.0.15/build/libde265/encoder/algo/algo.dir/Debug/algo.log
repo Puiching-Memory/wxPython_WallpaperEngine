@@ -1,0 +1,181 @@
+﻿  Building Custom Rule D:/GitHub/wxPython_WallpaperEngine/lib265/libde265-1.0.15/libde265/encoder/algo/CMakeLists.txt
+  algo.cc
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\cabac.h(172,46): warning C4244: “return”: 从“uint64_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sps.h(156,69): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image.h(325,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(55,37): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(81,80): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(92,76): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(64,61): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(112,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(118,26): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(124,59): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+  coding-options.cc
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\cabac.h(172,46): warning C4244: “return”: 从“uint64_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sps.h(156,69): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image.h(325,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(55,37): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(81,80): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(92,76): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(64,61): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(112,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(118,26): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(124,59): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\coding-options.cc(65,48): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\coding-options.cc(141,19): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  ctb-qscale.cc
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\cabac.h(172,46): warning C4244: “return”: 从“uint64_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sps.h(156,69): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(64,61): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(112,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(118,26): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(124,59): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image.h(325,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(55,37): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(81,80): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(92,76): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+  cb-split.cc
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\cabac.h(172,46): warning C4244: “return”: 从“uint64_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sps.h(156,69): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(64,61): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(112,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(118,26): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(124,59): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image.h(325,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(55,37): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(81,80): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(92,76): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+  cb-intrapartmode.cc
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\cabac.h(172,46): warning C4244: “return”: 从“uint64_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sps.h(156,69): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(64,61): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(112,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(118,26): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(124,59): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image.h(325,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(55,37): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(81,80): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(92,76): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+  cb-interpartmode.cc
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\cabac.h(172,46): warning C4244: “return”: 从“uint64_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sps.h(156,69): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(64,61): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(112,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(118,26): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(124,59): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image.h(325,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(55,37): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(81,80): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(92,76): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\cb-interpartmode.cc(43,7): warning C4101: “nPB”: 未引用的局部变量
+  cb-skip.cc
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\cabac.h(172,46): warning C4244: “return”: 从“uint64_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sps.h(156,69): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(64,61): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(112,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(118,26): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(124,59): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image.h(325,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(55,37): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(81,80): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(92,76): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+  cb-intra-inter.cc
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\cabac.h(172,46): warning C4244: “return”: 从“uint64_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sps.h(156,69): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(64,61): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(112,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(118,26): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(124,59): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image.h(325,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(55,37): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(81,80): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(92,76): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+  cb-mergeindex.cc
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\cabac.h(172,46): warning C4244: “return”: 从“uint64_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sps.h(156,69): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(64,61): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(112,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(118,26): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(124,59): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image.h(325,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(55,37): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(81,80): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(92,76): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\cb-mergeindex.cc(170,44): warning C4244: “=”: 从“uint32_t”转换到“float”，可能丢失数据
+  tb-split.cc
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\cabac.h(172,46): warning C4244: “return”: 从“uint64_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sps.h(156,69): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(64,61): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(112,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(118,26): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(124,59): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image.h(325,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(55,37): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(81,80): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(92,76): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\Visual Studio\VC\Tools\MSVC\14.40.33807\include\xutility(388,82): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  tb-transform.cc
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\cabac.h(172,46): warning C4244: “return”: 从“uint64_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sps.h(156,69): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(64,61): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(112,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(118,26): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(124,59): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image.h(325,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(55,37): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(81,80): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(92,76): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\tb-transform.cc(73,11): warning C4101: “blk”: 未引用的局部变量
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\tb-transform.cc(248,23): warning C4244: “=”: 从“uint32_t”转换到“float”，可能丢失数据
+  tb-intrapredmode.cc
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\cabac.h(172,46): warning C4244: “return”: 从“uint64_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sps.h(156,69): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image.h(325,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(55,37): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(81,80): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(92,76): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(64,61): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(112,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(118,26): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(124,59): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\tb-intrapredmode.cc(86,17): warning C4244: “return”: 从“uint32_t”转换到“float”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\tb-intrapredmode.cc(94,17): warning C4244: “return”: 从“uint32_t”转换到“float”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\tb-intrapredmode.cc(81,9): warning C4101: “distortion”: 未引用的局部变量
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\tb-intrapredmode.cc(419,11): warning C4101: “minCandCost”: 未引用的局部变量
+D:\Visual Studio\VC\Tools\MSVC\14.40.33807\include\utility(276,61): warning C4244: “初始化”: 从“_Ty”转换到“_Ty2”，可能丢失数据
+D:\Visual Studio\VC\Tools\MSVC\14.40.33807\include\utility(276,61): warning C4244:         with
+D:\Visual Studio\VC\Tools\MSVC\14.40.33807\include\utility(276,61): warning C4244:         [
+D:\Visual Studio\VC\Tools\MSVC\14.40.33807\include\utility(276,61): warning C4244:             _Ty=int
+D:\Visual Studio\VC\Tools\MSVC\14.40.33807\include\utility(276,61): warning C4244:         ]
+D:\Visual Studio\VC\Tools\MSVC\14.40.33807\include\utility(276,61): warning C4244:         and
+D:\Visual Studio\VC\Tools\MSVC\14.40.33807\include\utility(276,61): warning C4244:         [
+D:\Visual Studio\VC\Tools\MSVC\14.40.33807\include\utility(276,61): warning C4244:             _Ty2=float
+D:\Visual Studio\VC\Tools\MSVC\14.40.33807\include\utility(276,61): warning C4244:         ]
+D:\Visual Studio\VC\Tools\MSVC\14.40.33807\include\xutility(388,82): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  tb-rateestim.cc
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\cabac.h(172,46): warning C4244: “return”: 从“uint64_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sps.h(156,69): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(64,61): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(112,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(118,26): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(124,59): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image.h(325,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(55,37): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(81,80): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(92,76): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+  pb-mv.cc
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\cabac.h(172,46): warning C4244: “return”: 从“uint64_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\sps.h(156,69): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(64,61): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(112,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(118,26): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\nal-parser.h(124,59): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\image.h(325,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(55,37): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(81,80): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\dpb.h(92,76): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\pb-mv.cc(244,18): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\pb-mv.cc(246,24): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
+D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\encoder\algo\pb-mv.cc(308,44): warning C4244: “=”: 从“uint32_t”转换到“float”，可能丢失数据
+  正在生成代码...
+  algo.vcxproj -> D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\build\libde265\encoder\algo\algo.dir\Debug\algo.lib

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\x86\sse.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\x86\sse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\GitHub\wxPython_WallpaperEngine\lib265\libde265-1.0.15\libde265\x86\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{597B3E00-C42E-300B-9A82-41CBDD928832}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{CF353001-E4B3-30A0-ACA0-61B8E140A7B3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
