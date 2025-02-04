@@ -1,5 +1,6 @@
 # must be installed
-wxpython
-pywin32api
+wxpython==4.2.2
+pywin32==308
 
 # optional dependencies
+nuitka==2.6.3

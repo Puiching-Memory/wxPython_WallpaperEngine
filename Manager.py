@@ -20,14 +20,14 @@ import win32print
 import win32con
 import wx
 import wx.svg 
+import wx.xml
 import threading
 
-import win32mica #win11云母实现
+# import win32mica #win11云母实现
 
 import GUI_Manager
 
 import SPL_Player # 基于wx.DC的软件播放器
-import MFC_Player # 基于MFPlay的windows media foundation架构播放器
 import windows_API # 将窗口载入壁纸层
 
 #doc:https://blog.csdn.net/Just_bg/article/details/116887990
@@ -69,8 +69,8 @@ class CalcFrame(GUI_Manager.Main):
 
 		self.Refresh_Size()
 
-		mode = win32mica.MICAMODE.DARK  #为主窗口添加云母效果
-		win32mica.ApplyMica(self.GetHandle(), mode)
+		# mode = win32mica.MICAMODE.DARK  #为主窗口添加云母效果
+		# win32mica.ApplyMica(self.GetHandle(), mode)
 
 	def Close(self, event):
 		"""
