@@ -16,30 +16,18 @@ Manager.py(管理，时钟刻，设置，数据传输) --> **Engine.py(解码器
 
 # 环境要求
 
-windows10 or 11 (不支持win7及以下系统)
+windows10 or 11
 
-# 功能计划 || Plan 2022/05/20❤
+```
+conda create -n wxwallpaper python=3.12
+pip install -r requirements.txt
+```
 
-* [ ] 播放音频
-* [X] 播放速率调节
-* [X] 支持.mov文件
-* [ ] 支持html文件
-* [ ] 切片缓存再利用
-* [X] 无缝循环播放
-* [ ] 列表式播放
-* [X] 拖放式加载
+# 路线图 || RoadMap 2025/05/20❤
 
-# 所需库
+* [ ] 重构所有代码，使用硬件解码
 
-python3.10标准库
-
-wxpython
-
-pywin32api
-
-pyopencv2
-
-# 版权
+# 致谢
 
 所有者:@PUICHING_Memory
 

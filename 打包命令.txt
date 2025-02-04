@@ -1,2 +1,0 @@
-pyinstaller -D Manager.py -w -y -n wxPython_WallPaperEngine --upx-dir UPX
-pyinstaller -D Manager.py -w -y -n wxPython_WallPaperEngine
