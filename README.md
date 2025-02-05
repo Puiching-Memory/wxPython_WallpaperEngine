@@ -30,6 +30,7 @@ pip install -r requirements.txt
 * [ ] nuitka集成为setup.py
 * [ ] gui的文件目录结构调整
 * [ ] win32的云母现代化外观
+* [ ] github workflow集成
 
 # 致谢
 
