@@ -23,9 +23,13 @@ conda create -n wxwallpaper python=3.10
 pip install -r requirements.txt
 ```
 
-# 路线图 || RoadMap 2025/05/20❤
+# 路线图 || RoadMap 2025/02/05
 
-* [ ] 重构所有代码，使用硬件解码
+* [ ] nvidia视频硬件解码SDK
+* [ ] intel视频硬件解码SDK
+* [ ] nuitka集成为setup.py
+* [ ] gui的文件目录结构调整
+* [ ] win32的云母现代化外观
 
 # 致谢
 
