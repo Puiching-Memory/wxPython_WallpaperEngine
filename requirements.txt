@@ -1,7 +1,7 @@
 # must be installed
 wxpython==4.2.2
 pywin32==308
-PyNvVideoCodec==1.0.2
+PyNvVideoCodec==1.0.2 # 限制版本到py3.10
 
 # optional dependencies
 nuitka==2.6.3

@@ -19,7 +19,7 @@ Manager.py(管理，时钟刻，设置，数据传输) --> **Engine.py(解码器
 windows10 or 11
 
 ```
-conda create -n wxwallpaper python=3.12
+conda create -n wxwallpaper python=3.10
 pip install -r requirements.txt
 ```
 
