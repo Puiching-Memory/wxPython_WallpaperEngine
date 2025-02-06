@@ -2,6 +2,7 @@ __pycache__/
 .vscode/
 *.build
 *.dist
+*.onefile-build
 *.exe
 src/
 compilation-report.xml

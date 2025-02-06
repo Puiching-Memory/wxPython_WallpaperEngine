@@ -2,7 +2,10 @@
 wxpython==4.2.2
 pywin32==308
 PyNvVideoCodec==1.0.2 # 限制版本到py3.10
+pycuda==2024.1.2
+colour-science==0.4.6
 
 # optional dependencies
 nuitka==2.6.3
 colorama==0.4.6
+matplotlib==3.10.0
