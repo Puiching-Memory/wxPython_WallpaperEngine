@@ -6,3 +6,4 @@ __pycache__/
 *.exe
 src/
 compilation-report.xml
+_*.py
