@@ -4,6 +4,8 @@ pywin32==308
 PyNvVideoCodec==1.0.2 # 限制版本到py3.10
 pycuda==2024.1.2
 colour-science==0.4.6
+opencv-python==4.11.0.86
+cupy-cuda12x==13.3.0
 
 # optional dependencies
 nuitka==2.6.3
